@@ -10,8 +10,8 @@
 
 // This page is not designed to be accessed by a human, but rather by a kron-job
 
-$con=mysqli_connect("sdgame.db","sdgame","Read_It","Characters");
-$ud=mysqli_connect("sdgame.db","sdgame_add","WriteIt","Characters");
+$con=mysqli_connect("database.db","username","password","Characters");
+$ud=mysqli_connect("database.db","username","password","Characters");
 
 switch ($_REQUEST["Type"])
 {
