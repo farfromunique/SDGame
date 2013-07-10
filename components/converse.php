@@ -48,7 +48,7 @@ else
 ?>
 	<form action='index.php' method='post'>
 	<input type='hidden' name='UD_type' value='Converse'>
-	<input type='text' name='Comm' id='TalkBox'>
-	<input type='submit' value='Talk' id='TalkButton'>
+	<input type='text' name='Comm' class='TalkBox'>
+	<input type='submit' value='Talk' class='TalkButton'>
 	</form>
 </div>
