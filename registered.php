@@ -8,17 +8,19 @@
 //  TZ: String containng a timezone
 
 require 'components/header.php';
-echo "<style>
-#Important {
-  display:none;
-}
-#Register {
-	display:none;
-}
-#whoshere {
-	display:none;
-}
-</style>";
+?>
+<style>
+	#Important {
+		display:none;
+	}
+	#Register {
+		display:none;
+	}
+	#whoshere {
+		display:none;
+	}
+</style>
+<?php
 // Page-Specific Variables
 $desiredChar = $_POST["Cname"];
 $desiredUser = $_POST["Uname"];
@@ -31,7 +33,9 @@ $charResult = mysqli_affected_rows($ud);
 $userCheck = "SELECT LoginName AS Login FROM Logins WHERE LoginName = '" . $desiredUser . "'";
 $userTaken = mysqli_query($ud,$userCheck);
 $userResult = mysqli_affected_rows($ud);
-echo "<div id='content'>";
+?>
+<div id='content'>
+<?php
 if ($charResult != 0 and $userResult != 0) //Chosen UserID and CharID are taken
 {
 	echo "<center><h2>We're sorry, neither that Login Name <b>nor</b> Character name is availiable.</h2><p> Please choose another of each.</p>";
