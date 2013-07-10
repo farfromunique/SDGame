@@ -10,16 +10,9 @@
 // Initialize $_SESSION
 session_start();
 
-// Create MySQL Sessions
-{
-if (! $con=mysqli_connect("sdgame.db","sdgame","Read_It","Characters"))
-{
-	die("Error connecting to $con in header.php. Stopping!");
-}
-if (! $ud=mysqli_connect("sdgame.db","sdgame_add","WriteIt","Characters"))
-{
-	die("Error connecting to $ud in header.php. Stopping!");
-}}
+// require MySQL Sessions
+require 'components/connections.php';
+
 // Set Time-based Variables
 {
 $t=time(); // Current Time
