@@ -8,6 +8,8 @@
 //  TZ: String containng a timezone
 
 session_start();
+
+require 'components/connectons.php';
 ?>
 <html>
 <head>
@@ -17,12 +19,9 @@ session_start();
 <?php
 $currentLoc = $_SESSION["CurrLoc"];
 
-// Create SQL connection
-$con=mysqli_connect("database.db","username","password","Characters");
-
 // Check connection
 if (mysqli_connect_errno($con))
-  {
+	{
 		echo "Failed to connect to MySQL (read): " . mysqli_connect_error();
 	} 
 
