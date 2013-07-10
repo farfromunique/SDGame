@@ -14,7 +14,7 @@ if (!$_SESSION["IsGM"] or !isset($_REQUEST["Type"]))
 	header('Location: http://game.acwpd.com/');
 }
 
-$ud=mysqli_connect("database.db","user","password","Characters");
+require 'components/connections.php';
 
 if ($_REQUEST["Type"] == "comment")
 {
@@ -26,6 +26,7 @@ if ($_REQUEST["Type"] == "comment")
 	}
 }
 
-mysqli_close($ud);
 header('Location: http://game.acwpd.com/');
+
+require 'components/footer.php';
 ?>
