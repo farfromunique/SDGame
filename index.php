@@ -9,20 +9,21 @@
 require 'components/header.php';
 
 //Body
-echo "<div id='content'><h2>You are currently at ";
+?>
+<div id='content'><h2>You are currently at
+<?php
 while ($row = mysqli_fetch_array($location))
-  {
+	{
 	echo $row['LocationName_W'];
 	}
-
-echo ".</h2><h3>It is now " . $tf;
-echo "</h3>";
-echo "</div>";
-
+echo ".</h2><h3>It is now " . $tf; 
+?>
+	</h3>
+</div>
+<?php
 //Conversation
 require 'components/converse.php';
 
 //Footer
 require 'components/footer.php';
-
 ?>
