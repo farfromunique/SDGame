@@ -9,16 +9,16 @@
 
 session_start();
 
+require 'components/connections.php';
+
 $XP_Cost = $_POST["XP_Cost"];
 $PowerUID = $_POST["PowerUID"];
-
-$ud=mysqli_connect("sdgame.db","sdgame_add","WriteIt","Characters");
 
 // Update XP
 $XP_Update_Str = "UPDATE Character_Details SET XP_Current=(XP_Current - " . $XP_Cost . ") WHERE UID = " . $_SESSION["CharUID"];
 if (!$XP_Update = mysqli_query($ud,$XP_Update_Str))
 {
-  die("Error in XP Update! <a href=javascript:history.back>back up</a>");
+	die("Error in XP Update! <a href=javascript:history.back>back up</a>");
 }
 
 // Add Power to Link Table
