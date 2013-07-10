@@ -9,19 +9,12 @@
 
 session_start();
 
-if (!$_SESSION["IsGM"])
-{
-  header('Location: http://game.acwpd.com/');
-	//echo "IsGM: " . $_SESSION["IsGM"];
-}
-
-if (!isset($_REQUEST["Type"]))
+if (!$_SESSION["IsGM"] or !isset($_REQUEST["Type"]))
 {
 	header('Location: http://game.acwpd.com/');
-	//echo "Request type: " . $_REQUEST["Type"];
 }
 
-$ud=mysqli_connect("sdgame.db","sdgame_add","WriteIt","Characters");
+$ud=mysqli_connect("database.db","user","password","Characters");
 
 if ($_REQUEST["Type"] == "comment")
 {
