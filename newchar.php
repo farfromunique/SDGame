@@ -48,7 +48,7 @@ else if ($CharHeight < 200) {$CharHeightCat = 'tall';}
 else {$CharHeightCat = 'very tall';}
 
 //Body
-echo "<div id='content'>";
+echo "<div class='content'>";
 
 if ($_REQUEST["update"] == "Yes") // Updating Character with new data
 {
