@@ -9,7 +9,7 @@
 
 session_start();
 
-$ud=mysqli_connect("sdgame.db","sdgame_add","WriteIt","Characters");
+$ud=mysqli_connect("database.db","username","password","Characters");
 
 $SetTZ = $_REQUEST["TZ"];
 
