@@ -8,34 +8,33 @@
 
 //Define Queries
 $all_locations = mysqli_query($con,"SELECT * FROM  Locations");
-
-echo "Locations<br />
-  	<ul>";
-
+?>
+Locations<br />
+	<ul>
+<?php
 while ($row = mysqli_fetch_array($all_locations))
 	{
 	echo "<li><a href='goto.php?Loc=" . $row['UID'] . "'>" . $row['LocationName_W'] . "</a>";
 	}
-
-echo "</ul><p>Special Pages<br />
-<ul>";
+?>
+</ul>
+<p>Special Pages<br />
+	<ul>
+<?php
 if ($_SESSION["LoggedIn"] == "Yes")
 {
 	echo "<li><a href='logout.php'>Log Out</a></li>";
 }
-
-echo "<li><a href='newchar.php?update=Old'>Update Character Description</a></li>
-	 <li><a href='TZChoice.php'>Update / Set timezone</a></li>";
-echo "<li><a href='buyPowers2.php'>Buy Powers</a></li>";
-echo "</ul>";
-
+?>
+	<li><a href='newchar.php?update=Old'>Update Character Description</a></li>
+	<li><a href='TZChoice.php'>Update / Set timezone</a></li>";
+	<li><a href='buyPowers2.php'>Buy Powers</a></li>";
+</ul>
+<?php
 if ($_SESSION["IsGM"] == True)
 {
-	//Debug cloud
-	
-	//End debug
+
 	echo "<b>GM-Only Pages</b><ul>";
-	//echo "<li><a href='insert.php'>Add Stuff</a></li>";
 	echo "<li>Add Stuff (disabled)</li>";
 	echo "<li><a href='powersList.php'>List of Powers</a></li>";
 	echo "</ul>";
