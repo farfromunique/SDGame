@@ -277,7 +277,7 @@ $CreateUser=mysqli_query($ud,"INSERT INTO Logins (LoginName, Password, CharUID, 
 
 
 echo "<p>Do you want to <a href='#' onClick='javascript:ShowCharUpdate();'>change anything</a>?";
-echo "<div class='updateChar'><form action='newchar.php' method='post'>
+echo "<div id='updateChar' class='hidden'><form action='newchar.php' method='post'>
 			<input name='update' value='Yes' type='hidden'>
 			Character Name: <input name='Cname' type='hidden' value='" . $CharName . "'>" . $CharName . "<br />
 			Password: --NOT DISPLATYED--<br />
