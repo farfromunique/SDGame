@@ -11,7 +11,7 @@ session_start();
 
 $UName = "'" . $_POST['User'] . "'";
 $PWord = md5($_POST['Pword']);
-$pw=mysqli_connect("sdgame.db","sdgame_pw","ReadOnly","Characters");
+$pw=mysqli_connect("database.db","username","password","Characters");
 
 $loginStr="SELECT CharUID, Password, TimeZone FROM Logins WHERE LoginName = " . $UName;
 $logins = mysqli_query($pw,$loginStr);
