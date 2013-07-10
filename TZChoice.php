@@ -10,18 +10,18 @@
 require 'components/header.php';
 
 //Body
-echo "<div id='content'><h2>Timezone List</h2>";
+?>
+<div id='content'><h2>Timezone List</h2>
+	<form action='tz_update.php' method='POST'>
+		<Table border='1'>
+			<tr>
+				<th width='45'>Select</th>
+				<th width='155'>Current Time</th>
+				<th>Timezone Name</th>
+				<th>Go To Submit</th>
+			</tr>
+			<?php
 $TZ_List=timezone_abbreviations_list();
-
-echo "<form action='tz_update.php' method='POST'>
-  <Table border='1'>
-		<tr>
-			<th width='45'>Select</th>
-			<th width='155'>Current Time</th>
-			<th>Timezone Name</th>
-			<th>Go To Submit</th>
-		</tr>";
-
 foreach($TZ_List as $x=>$x_value)
   {  
   foreach($TZ_List[$x] as $y=>$y_value)
@@ -41,9 +41,16 @@ foreach($TZ_List as $x=>$x_value)
   	
   }
 
-echo "<tr><td colspan='4' align='center'><a name='Foot'></a><input type='submit' value='Set Timezone'></td></tr></table></form>";
-
+?>
+			<tr>
+				<td colspan='4' align='center'>
+					<a name='Foot'></a>
+					<input type='submit' value='Set Timezone'>
+				</td>
+			</tr>
+		</table>
+	</form>
+<?php
 //Footer
 require 'components/footer.php';
-
 ?>
