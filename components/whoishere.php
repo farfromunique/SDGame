@@ -6,7 +6,7 @@
 //  IsGM: Boolean of whether or not this is a GM account
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 ?>
-<div id='whoshere'>
+<div class='whoishere'>
 	<center>You are logged in as:<br />
 		<?php echo $_SESSION["CharName"]; ?>
 	</center><br />
