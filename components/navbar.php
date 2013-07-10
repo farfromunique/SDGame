@@ -28,8 +28,8 @@ if ($_SESSION["LoggedIn"] == "Yes")
 }
 ?>
 	<li><a href='newchar.php?update=Old'>Update Character Description</a></li>
-	<li><a href='TZChoice.php'>Update / Set timezone</a></li>";
-	<li><a href='buyPowers2.php'>Buy Powers</a></li>";
+	<li><a href='TZChoice.php'>Update / Set timezone</a></li>
+	<li><a href='buyPowers2.php'>Buy Powers</a></li>
 </ul>
 <?php
 if ($_SESSION["IsGM"] == True)
