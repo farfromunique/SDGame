@@ -76,28 +76,24 @@ $location = mysqli_query($con,$locationStr);
 // Build page layout
 {
 
-// Important Messages
-{
-require 'components/ImportantStuff.php';
-}
-//  Registration page
-{
+	// Important Messages
+	{
+		require 'components/ImportantStuff.php';
+	}
 
-echo "<div id='Register'"; //Closing Angle Bracket missing intentionally
-require 'components/register.php';
-echo "</div>";
-}
-//   Navbar
-{
-echo "<div id='navbar'>";
-require 'components/navbar.php';
-echo "</div>";
-}
-//   WhoIsHere bar
-{
-echo "<div id='whoshere'>";
-require 'components/whoishere.php';
-echo "</div>";
-}
+	//  Registration page
+	{
+		require 'components/register.php';
+	}
+
+	//   Navbar
+	{
+		require 'components/navbar.php';
+	}
+	
+	//   WhoIsHere bar
+	{
+		require 'components/whoishere.php';
+	}
 }
 ?>
