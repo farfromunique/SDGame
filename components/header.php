@@ -12,11 +12,11 @@ session_start();
 
 // Create MySQL Sessions
 {
-if (! $con=mysqli_connect("dbname.db","user","password","Characters")) //obfuscated
+if (! $con=mysqli_connect("sdgame.db","sdgame","Read_It","Characters"))
 {
-  die("Error connecting to $con in header.php. Stopping!");
+	die("Error connecting to $con in header.php. Stopping!");
 }
-if (! $ud=mysqli_connect("dbname.db","user","password","Characters")) //obfuscated
+if (! $ud=mysqli_connect("sdgame.db","sdgame_add","WriteIt","Characters"))
 {
 	die("Error connecting to $ud in header.php. Stopping!");
 }}
@@ -63,13 +63,15 @@ $location = mysqli_query($con,$locationStr);
 
 // Link CSS and JS files
 {
-echo "<html>
+?>
+<html>
 	<head>
-	<link rel='stylesheet' type='text/css' href='basic.css'>
-	<script src='basic.js'></script>
-	<title>Sweet Dreams: Online</title>
+		<link rel='stylesheet' type='text/css' href='basic.css'>
+		<script src='basic.js'></script>
+		<title>Sweet Dreams: Online</title>
 	</head>
-	<body>";
+	<body>
+<?php
 }
 // Build page layout
 {
@@ -80,6 +82,7 @@ require 'components/ImportantStuff.php';
 }
 //  Registration page
 {
+
 echo "<div id='Register'"; //Closing Angle Bracket missing intentionally
 require 'components/register.php';
 echo "</div>";
