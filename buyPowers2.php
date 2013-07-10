@@ -10,7 +10,7 @@ require 'components/header.php';
 
 // Page-Specific variables
 {
-  // XP Query
+	// XP Query
 	{
 		$XPStr = "SELECT XP_Current FROM Character_Details WHERE UID = " . $_SESSION["CharUID"];
 		$GetXP = "";
@@ -296,68 +296,51 @@ require 'components/header.php';
 }
 
 //Body
-echo "<div id='content'><h2>Buy Powers for your character</h2>
-		<h3>You currently have <span id='XP'>" . $XP . "</span> XP to spend.</h3>";
+?>
+<div id='content'>
+	<h2>Buy Powers for your character</h2>
+	<?php echo "<h3>You currently have <span id='XP'>" . $XP . "</span> XP to spend.</h3>"; ?>
 	
-	// Selector Div
-	{
-		echo "<div id='SpendType'>
-				<a href='#' onClick='SpendReview()'>Review</a> | 
-				<a href='#' onClick='SpendNewPower()'>New Power</a> | 
-				<a href='#' onClick='SpendUpgrade()'>Upgrade Power</a>
-			</div>";
-	}
+	<div id='SpendType'>
+		<a href='#' onClick='SpendReview()'>Review</a> | 
+		<a href='#' onClick='SpendNewPower()'>New Power</a> | 
+		<a href='#' onClick='SpendUpgrade()'>Upgrade Power</a>
+	</div>
+	<div id='SpendReview'>
 	
-	// Review Div
-	{
-		echo "<div id='SpendReview'>";
-
-		echo "</div>";
-	}
-	
-	// Buy New Div
-	{
-		echo "<div id='SpendBuyNew'>
-				Select power to purchase:
-				<select id='availiablePowers' onChange='buyThis(this.options.selectedIndex - 1);'>
-					<option selected='true'>-- Select A Power --</option>";
+	</div>
+	<div id='SpendBuyNew'>
+		Select power to purchase:
+		<select id='availiablePowers' onChange='buyThis(this.options.selectedIndex - 1);'>
+			<option selected='true'>-- Select A Power --</option>
+			<?php 
 					for ($i=0;$i<count($AllPowers);$i++)
 					{
 						echo "<option id='BuyPowerUID" . $AllPowers[$i][0] . "'>" .  $AllPowers[$i][1] . "</option>";
 					}
-				echo "</select>
-				<div id='secondBuyNew' class='hidden'>
-				
-				</div>
-				<div id='thirdBuyNew' class='hidden'>
-				
-				</div>
-			</div>";
-	}
-		
-	// Upgrade Div
-	{
-		echo "<div id='SpendUpgrade'>
-			Select power to upgrade:
-			<ul>";
+			?>
+		</select>
+		<div id='secondBuyNew' class='hidden'>
+		</div>
+		<div id='thirdBuyNew' class='hidden'>
+		</div>
+	</div>
+	<div id='SpendUpgrade'>
+		Select power to upgrade:
+		<ul>
+		<?php
 			for ($i=0;$i<count($AbleToUpgrade);$i++)
 			{
 				echo "<li><a href='#' name='UpgradeList" . $AbleToUpgrade[$i][0] . "' onClick='upgradeList(this.name)'>" . $AbleToUpgrade[$i][1] . " - " . $AbleToUpgrade[$i][2] . "</a></li>";
 			}
-			echo "</select>
-			
-			<div id='secondUpgrade' class='hidden'>
-			
-			</div>
-			
-			<div id='thirdUpgrade' class='hidden'>
-			
-			</div>
-		</div>";
-	}
-	
-	
-//Footer
+		?>
+		<div id='secondUpgrade' class='hidden'>
+		
+		</div>
+		<div id='thirdUpgrade' class='hidden'>
+		
+		</div>
+	</div>
+<?php	
 require 'components/footer.php';
-
 ?>
