@@ -10,13 +10,13 @@
 require 'components/header.php';
 ?>
 <style>
-	#Important {
+	.important {
 		display:none;
 	}
-	#Register {
+	.register {
 		display:none;
 	}
-	#whoshere {
+	.whoshere {
 		display:none;
 	}
 </style>
@@ -34,7 +34,7 @@ $userCheck = "SELECT LoginName AS Login FROM Logins WHERE LoginName = '" . $desi
 $userTaken = mysqli_query($ud,$userCheck);
 $userResult = mysqli_affected_rows($ud);
 ?>
-<div id='content'>
+<div class='content'>
 <?php
 if ($charResult != 0 and $userResult != 0) //Chosen UserID and CharID are taken
 {
