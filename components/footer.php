@@ -16,7 +16,7 @@ if ($LoginTimeUpdate = mysqli_query($ud,$LoginTimeStr))
 }
 else
 {
-	echo "<div id='Message' onclick='javascript:hideMessage();'>Not Updated<br />" . $LoginTimeStr . "</div>";
+	echo "<div class='important' onclick='javascript:hideMessage();'>Not Updated<br />" . $LoginTimeStr . "</div>";
 }
 
 mysqli_close($con);
