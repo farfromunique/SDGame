@@ -1,6 +1,6 @@
 @charset "utf-8";
 h1 {
-  text-align: center;
+	text-align: center;
 	-webkit-margin-after: 5px;
 	-webkit-margin-before: 5px;
 }
@@ -17,7 +17,7 @@ h3 {
 div {
 	padding:15px;
 }
-#Message {
+#message {
 	background-color:#00ff00;
 	border: solid #ffff00;
 	border-width:10px;
@@ -55,7 +55,7 @@ div {
 }
 #conversation {
 	position: absolute;
-	padding-bottom: 0px;
+	padding-bottom: 0;
 	left: 235px;
 	top: 115px;
 	width: 500px;
@@ -106,14 +106,14 @@ div {
 }
 .GM_Button {
 	float:left;
-	margin-left: 0px;
+	margin-left: 0;
 	width:60px;
-	height:8px;
+	height:10px;
 }
 .comment {
 	padding-top:5px;
 	padding-bottom:5px;
-	padding-left:0px;
+	padding-left:0;
 	border-top-width:1px;
 	border-top-style:solid;
 	border-color:#c0c0c0;
