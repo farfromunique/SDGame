@@ -11,7 +11,7 @@ require 'components/header.php';
 
 // Page-Specific Variables
 $allCharsStr="SELECT `Character_Details`.`UID`, `Character_Details`.`Name`, 
-  			 `Character_Details`.`Rank`, `Locations`.`LocationName_W` AS `Location`, `Locations`.`UID` AS `LocUID`
+				 `Character_Details`.`Rank`, `Locations`.`LocationName_W` AS `Location`, `Locations`.`UID` AS `LocUID`
 			FROM `Character_Details` JOIN `Locations` ON `Character_Details`.`Current_Location_W`=`Locations`.`UID`
 			ORDER BY `Locations`.`UID` ASC";
 			
@@ -19,14 +19,15 @@ $allCharsStr="SELECT `Character_Details`.`UID`, `Character_Details`.`Name`,
 $allChars = mysqli_query($con,$allCharsStr);
 
 //Body
-echo "<div id='content'><h2>List of all characters</h2>";
-
-	//Build User Table
-	echo "<table width=85% border='1'>
+?>
+<div id='content'>
+	<h2>List of all characters</h2>
+	<table width=85% border='1'>
 		<tr>
 			<th>Name</th>
 			<th width='45'>Rank</th>
-		</tr>";
+		</tr>
+		<?php
 	$rowCount = 0;
 	while($row = mysqli_fetch_array($allChars))
 	  {
@@ -43,9 +44,9 @@ echo "<div id='content'><h2>List of all characters</h2>";
 		  		</tr>";
 		  $LastRowLoc = $ThisRowLoc;
 	  }
-	  echo "</table>";
-
+	  ?>
+	  </table>
+<?php
 //Footer
 require 'components/footer.php';
-
 ?>
