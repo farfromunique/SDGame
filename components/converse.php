@@ -19,7 +19,7 @@ $conversStr = "SELECT Conversations.UID, Conversations.Location, Conversations.T
 $convers = mysqli_query($con,$conversStr);	
 $conversRows = mysqli_affected_rows($con);
 ?>
-<div id='conversation'>
+<div class='conversation'>
 <?php
 if ($conversRows > 0)
 {
