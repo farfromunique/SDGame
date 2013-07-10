@@ -10,7 +10,7 @@ require 'components/header.php';
 
 //Body
 ?>
-<div id='content'><h2>You are currently at
+<div class='content'><h2>You are currently at
 <?php
 while ($row = mysqli_fetch_array($location))
 	{
