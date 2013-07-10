@@ -12,7 +12,7 @@
 $LoginTimeStr = "UPDATE `Logins` SET `LastLogin`='" . $tu . "' WHERE `CharUID`='" . $_SESSION["CharUID"] . "'";
 if ($LoginTimeUpdate = mysqli_query($ud,$LoginTimeStr))
 {
-  // Everything worked!
+	// Everything worked!
 }
 else
 {
@@ -21,5 +21,6 @@ else
 
 mysqli_close($con);
 mysqli_close($ud);
-echo "</body></html>";
 ?>
+
+</body></html>
