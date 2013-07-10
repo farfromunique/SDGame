@@ -17,11 +17,11 @@ require 'components/header.php';
 $PowerNames=mysqli_query($con,"SELECT * FROM Powers WHERE AddonType = 'Base'");
 
 //Body
-echo "<div id='content'><h2>List of all (imported) Powers:</h2>"; //Header
+echo "<div class='content'><h2>List of all (imported) Powers:</h2>"; //Header
 
 // Level 1: Power Names
 {
-  echo "<ul>"; 
+	echo "<ul>"; 
 	while ($row = mysqli_fetch_array($PowerNames)) // List Power Names
 	// Columns availiable are: UID (Int), Power(Str), AddonType(Str), Name(Str), Description(Str),
 	//   XP_Cost(Int), Requires_Specifics(Bool), Requires_Other_Power(Int)
