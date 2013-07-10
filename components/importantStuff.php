@@ -9,7 +9,7 @@
 
 if ((!$_SESSION["TZ"]) and ($_SESSION["LoggedIn"]=="Yes"))
 {
-  echo "<div id='Important' class='dismissable''>
+	echo "<div class='important' class='dismissable''>
 	Please take a moment to <a href='TZChoice.php'>set your timezone</a>. (<a href='javascript:DismissImportant();'>Dismiss Message</a>)
 	</div>";
 }
