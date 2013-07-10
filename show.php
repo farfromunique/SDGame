@@ -16,9 +16,9 @@ $LookAt = $_REQUEST["id"];
 $WhoToLookAt = mysqli_query($con,"SELECT * FROM  Character_Details WHERE UID = " . $LookAt);
 
 //Body
-echo "<div id='content'><h2>Character Details for: ";
+echo "<div class='content'><h2>Character Details for: ";
 while ($row = mysqli_fetch_array($WhoToLookAt))
-  {
+	{
 	switch ($row['Gender'])
 		{
 			case "M":
@@ -72,7 +72,7 @@ if($_SESSION["IsGM"] == 1)
 {
 
 	echo "<p>Do you want to <a href='#' onClick='javascript:ShowCharUpdate();'>change anything</a> (GM ONLY)?";
-	echo "<div id='updateChar'><form action='newchar.php' method='post'>
+	echo "<div id='updateChar' class='hidden'><form action='newchar.php' method='post'>
 		<input name='update' value='GM' type='hidden'>
 		<input name='UpdateUID' value='" . $LookAt . "' type='hidden'>
 		Character Name: <input name='Cname' type='hidden' value='" . $CharName . "'>" . $CharName . "<br />
