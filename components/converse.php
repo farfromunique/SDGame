@@ -1,6 +1,6 @@
 <?php
 if (isset($_REQUEST["UD_type"]))
-  {
+	{
 		if ($_REQUEST["UD_type"]="Converse")
 			{
 				$newComment = $_REQUEST["Comm"];
@@ -18,10 +18,9 @@ $conversStr = "SELECT Conversations.UID, Conversations.Location, Conversations.T
 								WHERE TDS >= " . $tfOld ." AND Location = " . $_SESSION["CurrLoc"] . " ORDER BY UID DESC LIMIT 0, 10";
 $convers = mysqli_query($con,$conversStr);	
 $conversRows = mysqli_affected_rows($con);
-
-
-
-echo "<div id='conversation'>";
+?>
+<div id='conversation'>
+<?php
 if ($conversRows > 0)
 {
 	while ($row = mysqli_fetch_array($convers))
@@ -46,12 +45,10 @@ else
 {
 	echo "<i>Nobody seems to have said anything for a while...</i>";
 }
-
-echo "<form action='index.php' method='post'>
-<input type='hidden' name='UD_type' value='Converse'>
-<input type='text' name='Comm' id='TalkBox'>
-<input type='submit' value='Talk' id='TalkButton'>
-</form>";
-echo "</div>";
-
 ?>
+	<form action='index.php' method='post'>
+	<input type='hidden' name='UD_type' value='Converse'>
+	<input type='text' name='Comm' id='TalkBox'>
+	<input type='submit' value='Talk' id='TalkButton'>
+	</form>
+</div>
