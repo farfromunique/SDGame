@@ -10,12 +10,11 @@
 
 // This page is not designed to be accessed by a human, but rather by a kron-job
 
-$con=mysqli_connect("database.db","username","password","Characters");
-$ud=mysqli_connect("database.db","username","password","Characters");
+require 'components/connections.php';
 
 switch ($_REQUEST["Type"])
 {
-  case "Daily":
+	case "Daily":
 		$ArchiveQry1="INSERT INTO Conversations_bkup SELECT * FROM Conversations WHERE Conversations.TDS < now()-3600";
 		$ArchiveQry2="DELETE FROM Conversations WHERE Conversations.TDS < Now()-3600";
 		$OptimizeQry1="OPTIMIZE TABLE Conversations";
@@ -36,7 +35,5 @@ switch ($_REQUEST["Type"])
 		}
 		break;
 }
-
-mysqli_close($ud);
-mysqli_close($con);
+require 'components/footer.php';
 ?>
