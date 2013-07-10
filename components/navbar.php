@@ -9,7 +9,7 @@
 //Define Queries
 $all_locations = mysqli_query($con,"SELECT * FROM  Locations");
 ?>
-<div id='navbar'>
+<div class='navbar'>
 Locations<br />
 	<ul>
 <?php
