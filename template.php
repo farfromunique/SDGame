@@ -13,9 +13,10 @@ require 'components/header.php';
 // Page-Specific queries
 
 //Body
-echo "<div id='content'><h2>";
+?>
+<div id='content'><h2>
 
+<?php
 //Footer
 require 'components/footer.php';
-
 ?>
