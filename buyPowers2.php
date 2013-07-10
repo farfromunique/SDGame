@@ -297,19 +297,19 @@ require 'components/header.php';
 
 //Body
 ?>
-<div id='content'>
+<div class='content'>
 	<h2>Buy Powers for your character</h2>
 	<?php echo "<h3>You currently have <span id='XP'>" . $XP . "</span> XP to spend.</h3>"; ?>
 	
-	<div id='SpendType'>
+	<div class='selectIt'>
 		<a href='#' onClick='SpendReview()'>Review</a> | 
 		<a href='#' onClick='SpendNewPower()'>New Power</a> | 
 		<a href='#' onClick='SpendUpgrade()'>Upgrade Power</a>
 	</div>
-	<div id='SpendReview'>
+	<div id='SpendReview' class='spend'>
 	
 	</div>
-	<div id='SpendBuyNew'>
+	<div id='SpendBuyNew' class='spend'>
 		Select power to purchase:
 		<select id='availiablePowers' onChange='buyThis(this.options.selectedIndex - 1);'>
 			<option selected='true'>-- Select A Power --</option>
@@ -325,7 +325,7 @@ require 'components/header.php';
 		<div id='thirdBuyNew' class='hidden'>
 		</div>
 	</div>
-	<div id='SpendUpgrade'>
+	<div id='SpendUpgrade' class='spend'>
 		Select power to upgrade:
 		<ul>
 		<?php
