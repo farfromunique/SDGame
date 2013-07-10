@@ -6,16 +6,17 @@
 //  IsGM: Boolean of whether or not this is a GM account
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 ?>
-<center>You are logged in as:<br />
-<?php echo $_SESSION["CharName"]; ?>
-</center><br />
-<center>Others who are here:</center>
-<hr />
-<table width=100%>
-	<tr>
-		<th>Name</th>
-		<th width=25%>Rank</th>
-	</tr>
+<div id='whoshere'>
+	<center>You are logged in as:<br />
+		<?php echo $_SESSION["CharName"]; ?>
+	</center><br />
+	<center>Others who are here:</center>
+	<hr />
+	<table width=100%>
+		<tr>
+			<th>Name</th>
+			<th width=25%>Rank</th>
+		</tr>
 <?php 
 	while($row = mysqli_fetch_array($charsHere))
 	  {
@@ -28,6 +29,9 @@
 	  	}
 	  }
 ?>
-</table>
-<hr />
-<center><a href='users.php'>All characters</a></center>
+	</table>
+	<hr />
+	<center>
+		<a href='users.php'>All characters</a>
+	</center>
+</div>
