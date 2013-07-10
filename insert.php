@@ -18,7 +18,7 @@ session_start();
 $currentLoc = $_SESSION["CurrLoc"];
 
 // Create SQL connection
-$con=mysqli_connect("sdgame.db","sdgame","Read_It","Characters");
+$con=mysqli_connect("database.db","username","password","Characters");
 
 // Check connection
 if (mysqli_connect_errno($con))
