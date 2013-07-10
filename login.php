@@ -11,7 +11,7 @@ session_start();
 
 $UName = "'" . $_POST['User'] . "'";
 $PWord = md5($_POST['Pword']);
-$pw=mysqli_connect("database.db","username","password","Characters");
+
 
 $loginStr="SELECT CharUID, Password, TimeZone FROM Logins WHERE LoginName = " . $UName;
 $logins = mysqli_query($pw,$loginStr);
@@ -20,7 +20,7 @@ $t=time();
 
 if (mysqli_affected_rows($pw) == 1) // Precisely 1 Login Name matches what was entered
 {
-  while ($row = mysqli_fetch_array($logins))
+	while ($row = mysqli_fetch_array($logins))
 		{
 			if ($row['Password']==$PWord) // Passwords Match
 			{
@@ -71,15 +71,15 @@ else if (mysqli_affected_rows($pw) == 0) // Invalid Login Name
 	<link rel='stylesheet' type='text/css' href='basic.css'>
 	</head>
 	<body>";
-	echo "<div id='Register'>";
 	echo "<span>Invalid Login Name. Try Again.</span";  //Closing Angle Bracket missing intentionally
 	require 'components/register.php';
-	echo "</div>";
 }
 else // Non-Unique LoginName (how did this happen?)
 {
 	$message="Hey! Someone just managed to get more than 1 result on the query<br />" . $loginStr . "<br />Better check the DB!";
 	$headers = "From:TheGame@acwpd.com";
 	mail('game@acwpd.com','Duplicate Username',$message,$headers);
+	echo "Something very odd happened. The site admin has been contacted. Our apologies.";
 }
+require 'components/footer.php';
 ?>
