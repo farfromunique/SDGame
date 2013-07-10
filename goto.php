@@ -9,7 +9,7 @@
 
 session_start();
 
-$ud=mysqli_connect("database.db","username","password","Characters");
+require 'components/connections.php';
 
 $targetLoc = $_REQUEST["Loc"];
 
@@ -21,10 +21,8 @@ $GetLoc = mysqli_query($ud,$currentLocationGetStr);
 
 while($row = mysqli_fetch_array($GetLoc))
 {
-  $_SESSION["CurrLoc"] = $row['Current_Location_W'];
-	mysqli_close($ud);
-	header('Location: http://game.acwpd.com/');
+	$_SESSION["CurrLoc"] = $row['Current_Location_W'];
 }
-
-
+header('Location: http://game.acwpd.com/');
+require 'components/footer.php';
 ?>
