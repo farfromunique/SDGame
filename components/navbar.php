@@ -37,7 +37,6 @@ if ($_SESSION["IsGM"] == True)
 
 	echo "<b>GM-Only Pages</b><ul>";
 	echo "<li>Add Stuff (disabled)</li>";
-	echo "<li><a href='powersList.php'>List of Powers</a></li>";
 	echo "</ul>";
 }
 ?>
