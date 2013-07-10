@@ -8,7 +8,7 @@
 
 if ( !isset($_SESSION["LoggedIn"]) or $_SESSION["LoggedIn"]=="No")
 {
-  	echo "><Center>Welcome!<center>
+		echo "<div id='Register'><Center>Welcome!<center>
 		<p>You don't seem to be logged in at the moment. Please take a moment to either Log In or Register.</p>
 		<br /><br />
 		<table width='400px' border='1'>
@@ -29,9 +29,6 @@ if ( !isset($_SESSION["LoggedIn"]) or $_SESSION["LoggedIn"]=="No")
 			<br /><br />
 			Please note that you must be 13 to register.<br />";
 			echo date('Y-m-d h:i:s',time());
-}
-else
-{
-	echo " style='display:none;'>";
+			echo "</div>";
 }
 ?>
