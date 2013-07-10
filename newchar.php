@@ -8,10 +8,10 @@
 //  TZ: String containng a timezone
 
 require 'components/header.php';
-require 'components/header.php';
-echo "<style>
+?>
+<style>
 #Important {
-  display:none;
+	display:none;
 }
 #Register {
 	display:none;
@@ -19,7 +19,8 @@ echo "<style>
 #whoshere {
 	display:none;
 }
-</style>";
+</style>
+<?php
 
 // Set $_POST variables
 $UserName=$_POST["Uname"];
