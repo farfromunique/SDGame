@@ -14,7 +14,7 @@ require 'components/header.php';
 
 //Body
 ?>
-<div id='content'><h2>
+<div class='content'><h2>
 
 <?php
 //Footer
