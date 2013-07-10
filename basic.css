@@ -17,27 +17,26 @@ h3 {
 div {
 	padding:15px;
 }
-#message {
+.important {
 	background-color:#00ff00;
 	border: solid #ffff00;
 	border-width:10px;
 	position:absolute;
 	left:150px;
-	top:50px;
-	z-index:10;
+	z-index:20;
 }
-#whoshere {
+.whoishere {
 	position:absolute;
 	left: 775px;
 	top:10px;
 	width: 185px;
 	border: solid;
 	border-width: 0;
-	border-left: 1;
+	border-left: 1px;
 	background-color: #a9fc9a;
 	z-index:1;
 }
-#navbar {
+.navbar {
 	position: absolute;
 	left: 10px;
 	top: 10px;
@@ -45,7 +44,7 @@ div {
 	background-color: #a9fc9a;
 	z-index:1;
 }
-#content {
+.content {
 	position: absolute;
 	top: 10px;
 	left: 235px;
@@ -53,7 +52,7 @@ div {
 	background-color: #99fdd8;
 	z-index:1;
 }
-#conversation {
+.conversation {
 	position: absolute;
 	padding-bottom: 0;
 	left: 235px;
@@ -63,17 +62,17 @@ div {
 	vertical-align: bottom;
 	z-index:1;
 }
-#TalkBox {
+.TalkBox {
 	width: 85%;
 	position: relative;
 	left: 30px;
 	z-index:1;
 }
-#TalkButton {
+.TalkButton {
 	position: relative;
 	left: 30px;
 }
-#Register {
+.register {
 	position: absolute;
 	background-color: #c0c0c0;
 	left: 5px;
@@ -81,27 +80,14 @@ div {
 	width: 90%;
 	z-index:5;
 }
-#Important {
-	position: absolute;
-	background-color: #c0c0c0;
-	left: 5px;
-	top: 5px;
-	width: 90%;
-	z-index:20;
-}
-#updateChar {
+
+.updateChar {
 	display:none;
 }
-#SpendType {
+.selectIt {
 	text-align: center;
 }
-#SpendReview {
-	display:none;
-}
-#SpendUpgrade {
-	display:none;
-}
-#SpendBuyNew {
+.spend {
 	display:none;
 }
 .GM_Button {
