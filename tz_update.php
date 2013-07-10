@@ -9,7 +9,7 @@
 
 session_start();
 
-$ud=mysqli_connect("database.db","username","password","Characters");
+require 'components/connections.php';
 
 $SetTZ = $_REQUEST["TZ"];
 
@@ -18,7 +18,7 @@ $GetUID = mysqli_query($ud,$GetLoginUID);
 
 while ($MyUID=mysqli_fetch_array($GetUID))
 {
-  $LoginUID=$MyUID['UID'];
+	$LoginUID=$MyUID['UID'];
 }
 $SetLoginTZ = "UPDATE Logins SET TimeZone='" . $_REQUEST["TZ"] . "' WHERE UID = " . $LoginUID;
 
@@ -27,7 +27,6 @@ $SetMyTZ = mysqli_query($ud,$SetLoginTZ);
 if(mysqli_affected_rows($ud) == 1)
 {
 	$_SESSION["TZ"] = $SetTZ;
-	mysqli_close($ud);
 	header('Location: http://game.acwpd.com/');
 }
 else
@@ -36,5 +35,5 @@ else
 	$SetLoginTZ
 	 . "<br /><a href='TZChoice.php'>Go Back</a>";
 }
-
+require 'components/footer.php';
 ?>
