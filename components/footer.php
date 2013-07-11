@@ -8,14 +8,11 @@
 
 //footer file
 $LoginTimeStr = "UPDATE `Logins` SET `LastLogin`='" . $tu . "' WHERE `CharUID`='" . $_SESSION["CharUID"] . "'";
-if ($LoginTimeUpdate = mysqli_query($ud,$LoginTimeStr))
-{
-	// Everything worked!
-}
-else
-{
-	echo "<div class='important' onclick='javascript:hideMessage();'>Not Updated<br />" . $LoginTimeStr . "</div>";
-}
+?>
+<?php if (!$LoginTimeUpdate = mysqli_query($ud,$LoginTimeStr)): ?>
+	<div class='important' onclick='javascript:hideMessage();'>Not Updated<br /><?php echo $LoginTimeStr?></div>
+<?php endif; ?>
+<?php
 if (isset($con))
 {
 	mysqli_close($con);
