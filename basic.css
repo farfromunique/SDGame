@@ -17,6 +17,9 @@ h3 {
 div {
 	padding:15px;
 }
+table {
+	text-align: left;
+}
 .important {
 	background-color:#00ff00;
 	border: solid #ffff00;
@@ -35,6 +38,7 @@ div {
 	border-left: 1px;
 	background-color: #a9fc9a;
 	z-index:1;
+	text-align: center;
 }
 .navbar {
 	position: absolute;
