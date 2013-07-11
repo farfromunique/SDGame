@@ -181,64 +181,32 @@ require 'components/header.php';
 	}
 }
 
-// Build JS Objects
-{	
-	// JS: Current_XP
-	{
-		echo "<script name='Current_XP'>";
-		echo "var Current_XP = " . $XP . ";
-";
-		echo "</script>";
-	}
-	
-	// JS: AllPowers
-	{
-		echo "<script name='AllPowers'>";
-		for ($i=0;$i<count($AllPowers);$i++)
-		{
-			echo "AllPower" . $i . " = new Array(" 
-			. "'" . $AllPowers[$i][0] . "', " 
-			. "'" . $AllPowers[$i][1] . "', " 
-			. "'" . $AllPowers[$i][2] . "', " 
-			. "'" . $AllPowers[$i][3] . "', " 
-			. "'" . $AllPowers[$i][4] . "', " 
-			. "'" . $AllPowers[$i][5] . "')";
-			echo "
-			";
-		}
-		echo "var AllPowers = new Array();";
-		for ($i=0;$i<count($AllPowers);$i++)
-		{
-			echo "AllPowers.push(AllPower" . $i . ");";
-		}
-		echo "</script>";
-	}
-	
-	// JS: CurrentPowers
-	{
-		echo "<script name='CurrPowers'>";
-		for ($i=0;$i<count($CurrPowers);$i++)
-		{
-			echo "CurrPower" . $i . " = new Array(" 
-			. "'" . $CurrPowers[$i][0] . "', " 
-			. "'" . $CurrPowers[$i][1] . "', " 
-			. "'" . $CurrPowers[$i][2] . "', " 
-			. "'" . $CurrPowers[$i][3] . "', " 
-			. "'" . $CurrPowers[$i][4] . "', " 
-			. "'" . $CurrPowers[$i][5] . "')";
-			echo "
-			";
-		}
-		echo "var CurrentPowers = new Array();";
-		for ($i=0;$i<count($CurrPowers);$i++)
-		{
-			echo "CurrentPowers.push(CurrPower" . $i . ");";
-		}
-		echo "</script>";
-	}
+?>
+<script>";
+	var Current_XP = <?php echo $XP ?>;
+
+	<?php for ($i=0;$i<count($AllPowers);$i++): ?>
+		AllPower <?php echo $i ?> = new Array('<?php echo $AllPowers[$i][0] ?>', '<?php echo $AllPowers[$i][1] ?>', '<?php echo $AllPowers[$i][2] ?>', '<?php echo $AllPowers[$i][3] ?>', '<?php echo $AllPowers[$i][4] ?>', '<?php echo $AllPowers[$i][5] ?>');
+	<?php endfor; ?>
+
+	var AllPowers = new Array();
+	<?php for ($i=0;$i<count($AllPowers);$i++): ?>
+		AllPowers.push(AllPower<?php echo $i ?>);
+	<?php endfor; ?>
+
+	<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
+		CurrPower<?php echo $i ?> = new Array('<?php echo $CurrPowers[$i][0] ?>', '<?php echo $CurrPowers[$i][1] ?>', '<?php echo $CurrPowers[$i][2] ?>', '<?php echo $CurrPowers[$i][3] ?>', '<?php echo $CurrPowers[$i][4] ?>', '<?php echo $CurrPowers[$i][5] ?>');
+	<?php endfor; ?>
+
+	var CurrentPowers = new Array();
+	<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
+		CurrentPowers.push(CurrPower<?php echo $i ?>);
+	<?php endfor; ?>
+</script>
+
 	
 	// JS: AvailiableUpgrades
-	{
+
 		echo "<script name='AvailiableUpgrades'>";
 		for ($i=0;$i<count($AbleToUpgrade);$i++)
 		{
@@ -258,10 +226,10 @@ require 'components/header.php';
 			echo "AvailiableUpgrades.push(AvailPower" . $i . ");";
 		}
 		echo "</script>";
-	}
+
 	
 	// JS: Power_X Objects
-	{
+
 		echo "<script name='Power_X'>";
 		for ($i=0;$i<count($AllPowers);$i++)
 		{
@@ -270,10 +238,10 @@ require 'components/header.php';
 					";
 		}
 		echo "</script>";
-	}
+
 	
 	//JS: UpgradeList
-	{
+
 	echo "<script name='UpgradeList'>";
 	settype($UpgradesListSize[$i],"int");
 	for ($i=0;$i<count($AbleToUpgrade);$i++)
@@ -292,8 +260,7 @@ require 'components/header.php';
 		}
 	}
 	echo "</script>";
-	}
-}
+
 
 //Body
 ?>
