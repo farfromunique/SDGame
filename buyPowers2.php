@@ -185,85 +185,51 @@ require 'components/header.php';
 <script>";
 	var Current_XP = <?php echo $XP ?>;
 
-	<?php for ($i=0;$i<count($AllPowers);$i++): ?>
-		AllPower <?php echo $i ?> = new Array('<?php echo $AllPowers[$i][0] ?>', '<?php echo $AllPowers[$i][1] ?>', '<?php echo $AllPowers[$i][2] ?>', '<?php echo $AllPowers[$i][3] ?>', '<?php echo $AllPowers[$i][4] ?>', '<?php echo $AllPowers[$i][5] ?>');
-	<?php endfor; ?>
-
 	var AllPowers = new Array();
-	<?php for ($i=0;$i<count($AllPowers);$i++): ?>
-		AllPowers.push(AllPower<?php echo $i ?>);
-	<?php endfor; ?>
+		<?php for ($i=0;$i<count($AllPowers);$i++): ?>
+		AllPower <?php echo $i ?> = new Array('<?php echo $AllPowers[$i][0] ?>', '<?php echo $AllPowers[$i][1] ?>', '<?php echo $AllPowers[$i][2] ?>', '<?php echo $AllPowers[$i][3] ?>', '<?php echo $AllPowers[$i][4] ?>', '<?php echo $AllPowers[$i][5] ?>');
+		<?php endfor; ?>
 
-	<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
-		CurrPower<?php echo $i ?> = new Array('<?php echo $CurrPowers[$i][0] ?>', '<?php echo $CurrPowers[$i][1] ?>', '<?php echo $CurrPowers[$i][2] ?>', '<?php echo $CurrPowers[$i][3] ?>', '<?php echo $CurrPowers[$i][4] ?>', '<?php echo $CurrPowers[$i][5] ?>');
-	<?php endfor; ?>
+		<?php for ($i=0;$i<count($AllPowers);$i++): ?>
+		AllPowers.push(AllPower<?php echo $i ?>);
+		<?php endfor; ?>
 
 	var CurrentPowers = new Array();
-	<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
+		<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
+		CurrPower<?php echo $i ?> = new Array('<?php echo $CurrPowers[$i][0] ?>', '<?php echo $CurrPowers[$i][1] ?>', '<?php echo $CurrPowers[$i][2] ?>', '<?php echo $CurrPowers[$i][3] ?>', '<?php echo $CurrPowers[$i][4] ?>', '<?php echo $CurrPowers[$i][5] ?>');
+		<?php endfor; ?>
+
+		<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
 		CurrentPowers.push(CurrPower<?php echo $i ?>);
+		<?php endfor; ?>
+
+	var AvailiableUpgrades = new Array();	
+		<?php for ($i=0;$i<count($AbleToUpgrade);$i++): ?>
+		AvailPower<?php echo $i ?> = new Array('<?php echo $AbleToUpgrade[$i][0] ?>','<?php echo $AbleToUpgrade[$i][1] ?>','<?php echo $AbleToUpgrade[$i][2] ?>','<?php echo $AbleToUpgrade[$i][3] ?>','<?php echo $AbleToUpgrade[$i][4] ?>','<?php echo $AbleToUpgrade[$i][5] ?>');
+		<?php endfor; ?>
+		<?php for ($i=0;$i<count($AbleToUpgrade);$i++): ?>
+		AvailiableUpgrades.push(AvailPower<?php echo $i ?>);
+		<?php endfor; ?>
+
+	<?php for ($i=0;$i<count($AllPowers);$i++): ?>
+		<?php $thisPower = str_ireplace(' ','_',$AllPowers[$i][1]); ?>
+		Power_<?php echo $thisPower ?> = '<br /><?php echo $AllPowers[$i][3] ?><br /><br /><b>XP Cost: </b><?php echo $AllPowers[$i][4] ?>';
+	<?php endfor; ?>
+
+	<?php settype($UpgradesListSize[$i],"int"); ?>
+	<?php for ($i=0;$i<count($AbleToUpgrade);$i++): ?>
+		var UpgradeList<?php echo $AbleToUpgrade[$i][0] ?> = new Array();
+		<?php for ($j=0;$j<=$UpgradesListSize[$i];$j++): ?>
+			UpgradeList<?php echo $AbleToUpgrade[$i][0] ?>.push(Array(
+				'<?php echo $UpgradeList[$i][$j][0] ?>',
+				'<?php echo $UpgradeList[$i][$j][1] ?>',
+				'<?php echo $UpgradeList[$i][$j][2] ?>',
+				'<?php echo $UpgradeList[$i][$j][3] ?>',
+				'<?php echo $UpgradeList[$i][$j][4] ?>'));
+		<?php endfor; ?>
 	<?php endfor; ?>
 </script>
 
-	
-	// JS: AvailiableUpgrades
-
-		echo "<script name='AvailiableUpgrades'>";
-		for ($i=0;$i<count($AbleToUpgrade);$i++)
-		{
-			echo "AvailPower" . $i . " = new Array(" 
-			. "'" . $AbleToUpgrade[$i][0] . "', " 
-			. "'" . $AbleToUpgrade[$i][1] . "', " 
-			. "'" . $AbleToUpgrade[$i][2] . "', " 
-			. "'" . $AbleToUpgrade[$i][3] . "', " 
-			. "'" . $AbleToUpgrade[$i][4] . "', " 
-			. "'" . $AbleToUpgrade[$i][5] . "')";
-			echo "
-			";
-		}
-		echo "var AvailiableUpgrades = new Array();";
-		for ($i=0;$i<count($AbleToUpgrade);$i++)
-		{
-			echo "AvailiableUpgrades.push(AvailPower" . $i . ");";
-		}
-		echo "</script>";
-
-	
-	// JS: Power_X Objects
-
-		echo "<script name='Power_X'>";
-		for ($i=0;$i<count($AllPowers);$i++)
-		{
-			$thisPower = str_ireplace(' ','_',$AllPowers[$i][1]);
-			echo  "Power_" . $thisPower . " = '<br />" . $AllPowers[$i][3] . "<br /><br /><b>XP Cost: </b>" . $AllPowers[$i][4] . "';
-					";
-		}
-		echo "</script>";
-
-	
-	//JS: UpgradeList
-
-	echo "<script name='UpgradeList'>";
-	settype($UpgradesListSize[$i],"int");
-	for ($i=0;$i<count($AbleToUpgrade);$i++)
-	{
-		echo "var UpgradeList" . $AbleToUpgrade[$i][0] . " = new Array();
-";
-		for ($j=0;$j<=$UpgradesListSize[$i];$j++)
-		{
-			echo "UpgradeList" . $AbleToUpgrade[$i][0] . ".push(Array('"
-				. $UpgradeList[$i][$j][0] . "', '"
-				. $UpgradeList[$i][$j][1] . "', '"
-				. $UpgradeList[$i][$j][2] . "', '"
-				. $UpgradeList[$i][$j][3] . "', '"
-				. $UpgradeList[$i][$j][4] . "'));
-";
-		}
-	}
-	echo "</script>";
-
-
-//Body
-?>
 <div class='content'>
 	<h2>Buy Powers for your character</h2>
 	<?php echo "<h3>You currently have <span id='XP'>" . $XP . "</span> XP to spend.</h3>"; ?>
@@ -273,41 +239,36 @@ require 'components/header.php';
 		<a href='#' onClick='SpendNewPower()'>New Power</a> | 
 		<a href='#' onClick='SpendUpgrade()'>Upgrade Power</a>
 	</div>
-	<div id='SpendReview' class='spend'>
 	
-	</div>
+	<div id='SpendReview' class='spend'></div>
+
 	<div id='SpendBuyNew' class='spend'>
 		Select power to purchase:
 		<select id='availiablePowers' onChange='buyThis(this.options.selectedIndex - 1);'>
 			<option selected='true'>-- Select A Power --</option>
-			<?php 
-					for ($i=0;$i<count($AllPowers);$i++)
-					{
-						echo "<option id='BuyPowerUID" . $AllPowers[$i][0] . "'>" .  $AllPowers[$i][1] . "</option>";
-					}
-			?>
+			
+			<?php for ($i=0;$i<count($AllPowers);$i++): ?>
+			<option id='BuyPowerUID<?php echo $AllPowers[$i][0] ?>'><?php echo $AllPowers[$i][1] ?></option>
+			<?php endfor; ?>
+			
 		</select>
-		<div id='secondBuyNew' class='hidden'>
-		</div>
-		<div id='thirdBuyNew' class='hidden'>
-		</div>
+		<div id='secondBuyNew' class='hidden'></div>
+		
+		<div id='thirdBuyNew' class='hidden'></div>
+		
 	</div>
 	<div id='SpendUpgrade' class='spend'>
 		Select power to upgrade:
 		<ul>
-		<?php
-			for ($i=0;$i<count($AbleToUpgrade);$i++)
-			{
-				echo "<li><a href='#' name='UpgradeList" . $AbleToUpgrade[$i][0] . "' onClick='upgradeList(this.name)'>" . $AbleToUpgrade[$i][1] . " - " . $AbleToUpgrade[$i][2] . "</a></li>";
-			}
-		?>
-		<div id='secondUpgrade' class='hidden'>
+		<?php for ($i=0;$i<count($AbleToUpgrade);$i++): ?>
+			<li><a href='#' name='UpgradeList<?php echo $AbleToUpgrade[$i][0] ?>' onClick='upgradeList(this.name)'>
+				<?php echo $AbleToUpgrade[$i][1] ?> - <?php echo $AbleToUpgrade[$i][2] ?></a></li>
+		<?php endfor; ?>
 		
-		</div>
-		<div id='thirdUpgrade' class='hidden'>
+		<div id='secondUpgrade' class='hidden'></div>
 		
-		</div>
+		<div id='thirdUpgrade' class='hidden'></div>
+		
 	</div>
-<?php	
-require 'components/footer.php';
-?>
+	
+<?php require 'components/footer.php'; ?>
