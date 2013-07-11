@@ -15,8 +15,8 @@ require 'components/connections.php';
 switch ($_REQUEST["Type"])
 {
 	case "Daily":
-		$ArchiveQry1="INSERT INTO Conversations_bkup SELECT * FROM Conversations WHERE Conversations.TDS < now()-3600";
-		$ArchiveQry2="DELETE FROM Conversations WHERE Conversations.TDS < Now()-3600";
+		$ArchiveQry1="INSERT INTO Conversations_bkup SELECT * FROM Conversations WHERE Conversations.TDS < now()-86400";
+		$ArchiveQry2="DELETE FROM Conversations WHERE Conversations.TDS < Now()-86400";
 		$OptimizeQry1="OPTIMIZE TABLE Conversations";
 		$OptimizeQry2="OPTIMIZE TABLE Conversations_bkup";
 		
@@ -35,5 +35,5 @@ switch ($_REQUEST["Type"])
 		}
 		break;
 }
-require 'components/footer.php';
+mysqli_close($ud);
 ?>
