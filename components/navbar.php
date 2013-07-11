@@ -12,32 +12,21 @@ $all_locations = mysqli_query($con,"SELECT * FROM  Locations");
 <div class='navbar'>
 Locations<br />
 	<ul>
-<?php
-while ($row = mysqli_fetch_array($all_locations))
-	{
-	echo "<li><a href='goto.php?Loc=" . $row['UID'] . "'>" . $row['LocationName_W'] . "</a>";
-	}
-?>
+<?php while ($row = mysqli_fetch_array($all_locations)): ?>
+	<li><a href='goto.php?Loc=<?php echo $row['UID'] ?> '><?php echo $row['LocationName_W'] ?></a>
+<?php endwhile; ?>
 </ul>
 <p>Special Pages<br />
 	<ul>
-<?php
-if ($_SESSION["LoggedIn"] == "Yes")
-{
-	echo "<li><a href='logout.php'>Log Out</a></li>";
-}
-?>
-	<li><a href='newchar.php?update=Old'>Update Character Description</a></li>
-	<li><a href='TZChoice.php'>Update / Set timezone</a></li>
-	<li><a href='buyPowers2.php'>Buy Powers</a></li>
-</ul>
-<?php
-if ($_SESSION["IsGM"] == True)
-{
-
-	echo "<b>GM-Only Pages</b><ul>";
-	echo "<li>Add Stuff (disabled)</li>";
-	echo "</ul>";
-}
-?>
+		<li><a href='logout.php'>Log Out</a></li>
+		<li><a href='newchar.php?update=Old'>Update Character Description</a></li>
+		<li><a href='TZChoice.php'>Update / Set timezone</a></li>
+		<li><a href='buyPowers2.php'>Buy Powers</a></li>
+	</ul>
+<?php if ($_SESSION["IsGM"] == True): ?>
+	<b>GM-Only Pages</b>
+	<ul>
+	<li>Add Stuff (disabled)</li>
+	</ul>
+<?php endif; ?>
 </div>
