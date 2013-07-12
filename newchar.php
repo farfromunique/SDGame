@@ -48,15 +48,34 @@ else if ($CharHeight < 185) {$CharHeightCat = 'average height';}
 else if ($CharHeight < 200) {$CharHeightCat = 'tall';}
 else {$CharHeightCat = 'very tall';}
 
-if ($CharHeightCat == "average height")
-{$needAnN = "n";}
+if ($CharHeightCat == 'average height')
+{$needAnN = 'n';}
 else
-{$needAnN = "";}
+{$needAnN = '';}
 
 $UpdateQry="UPDATE Character_Details 
 	SET Age = '" . $CharAge . "', Gender = '" . $CharGend . "', Height = '" . $CharHeight . 
 	"', Skin = '" . $CharSkin . "', Eyes = '" . $CharEyes . "', Hair = '" . $CharHair . 
 	"', Distinguishing_Marks = '" . $CharDist . "', Height_Category = '" . $CharHeightCat . "' WHERE UID = " . $CharUID;
+
+if ($_REQUEST["update"] == "Old")
+{
+	$CurrentData=mysqli_query($ud,"SELECT * FROM Character_Details WHERE UID = " . $CharUID);
+	
+	while ($row = mysqli_fetch_array($CurrentData))
+	{
+		$CharName = $row['Name'];
+		$CharAge = $row['Age'];
+		$CharGend = $row['Gender'];
+		$CharHeight = $row['Height'];
+		$CharSkin = $row['Skin'];
+		$CharEyes = $row['Eyes'];
+		$CharHair = $row['Hair'];
+		$CharDist = $row['Distinguishing_Marks'];
+		$CharHeightCat = $row['Height_Category'];
+		$CharRank = $row['Rank'];
+	}
+}
 
 switch ($CharGend)
 {
@@ -73,6 +92,8 @@ switch ($CharGend)
 		die("Error! " . $CharGend);
 }
 
+
+
 ?>
 
 <div class='content'>
@@ -81,109 +102,23 @@ switch ($CharGend)
 		
 	<?php if ($CreateChar=mysqli_query($ud,$UpdateQry)): ?>
 		<h1>Character Updated</h1>
-		<h2>Character Description for: <?php echo $CharName; ?></h2>
-		<h3><?php echo $CharAge ?> year-old <?php echo $gender[0] ?> of Rank 1</h3>
-		<p><?php echo $CharName ?> is a<?php echo $needAnN ?> <?php echo $CharHeightCat ?> <?php echo $gender[1] ?>
-			, with <?php echo $CharHair ?> hair and eyes of <?php echo $CharEyes ?>.
-			<?php echo $gender[4] ?> skin is <?php echo $CharSkin; ?>
-			<?php if($CharDist): ?>
-				" and <?php echo lcfirst($gender[3]) ?> has <?php lcfirst($CharDist) ?>.
-			<?php else: ?>
-				.
-			<?php endif; ?>
 	<?php else: ?>
 		Update failed...<br /><?php echo $UpdateQry; ?>
 	<?php endif; ?>
 	
-<?php elseif ($_REQUEST["update"] == "Old"): ?>
-	
-	<?php
-	$CurrentData=mysqli_query($ud,"SELECT * FROM Character_Details WHERE UID = " . $CharUID);
-		while ($row = mysqli_fetch_array($CurrentData))
-		{
-			$CharName = $row['Name'];
-			$CharAge = $row['Age'];
-			$CharGend = $row['Gender'];
-			$CharHeight = $row['Height'];
-			$CharSkin = $row['Skin'];
-			$CharEyes = $row['Eyes'];
-			$CharHair = $row['Hair'];
-			$CharDist = $row['Distinguishing_Marks'];
-			$CharHeightCat = $row['Height_Category'];
-			$CharRank = $row['Rank'];
-		}
-	
-	switch ($CharGend)
-	{
-		case "M":
-			$gender=array("Male","guy","dude","He","His");
-			break;
-		case "F":
-			$gender=array("Female","gal","chick","She","Her");
-			break;
-		case "Other":
-			$gender=array("Individual","person","person",$row['Name'],"Their");
-			break;
-		default:
-			die("Error! Gender set to " . $CharGend . ". Stopping!");		
-	}
-	?>	
+<?php elseif ($_REQUEST["update"] == "Old"): ?>	
+
 	<h1>Character as-is</h1>
-	<h2>Character Description for: <?php echo $CharName; ?></h2>
-	<h3><?php echo $CharAge ?> year-old <?php echo $gender[0] ?> of Rank <?php echo $CharRank; ?></h3>
-	<p><?php echo $CharName ?> is a<?php echo $needAnN; ?> <?php echo $CharHeightCat ?> <?php echo $gender[1] ?>
-		, with <?php echo $CharHair ?> hair and eyes of <?php echo $CharEyes ?>. <?php echo $gender[4] ?> skin is <?php echo $CharSkin; ?>
-		<?php if($CharDist): ?>
-			 and <?php echo lcfirst($gender[3]) ?> has <?php echo lcfirst($CharDist) ?>.
-		<?php else: ?>
-			.
-		<?php endif; ?>
+		
 <?php elseif ($_REQUEST["update"] == "GM"): ?>
-	<?php
-	$UpdateQry="UPDATE Character_Details 
-		SET Age = '" . $CharAge . "', Gender = '" . $CharGend . "', Height = '" . $CharHeight . 
-			"', Skin = '" . $CharSkin . "', Eyes = '" . $CharEyes . "', Hair = '" . $CharHair . 
-			"', Distinguishing_Marks = '" . $CharDist . "', Height_Category = '" . $CharHeightCat . "' WHERE UID = " . $UpdateUID;
-	switch ($CharGend)
-	{
-		case "M":
-			$gender=array("Male","guy","dude","He","His");
-			break;
-		case "F":
-			$gender=array("Female","gal","chick","She","Her");
-			break;
-		case "Other":
-			$gender=array("Individual","person","person",$row['Name'],"Their");
-			break;
-		default:
-			echo "Error! " . $CharGend;
-			die();
-	}
-	if ($CharHeightCat == "average height")
-	{
-		$needAnN = "n";
-	}
-	else
-	{
-		$needAnN = "";
-	}
-	?>
+	
 	<?php if ($CreateChar=mysqli_query($ud,$UpdateQry)): ?>
 		<h1>Character Updated by GM</h1>
-		<h2>Character Description for: <?php echo $CharName; ?></h2>
-		<h3><?php echo $CharAge ?> year-old <?php echo $gender[0] ?> of Rank <?php echo $CharRank; ?></h3>
-		<p><?php echo $CharName ?> is a<?php echo $needAnN; ?> <?php echo $CharHeightCat ?> <?php echo $gender[1] ?>
-		, with <?php echo $CharHair ?> hair and eyes of <?php echo $CharEyes ?>. <?php echo $gender[4] ?> skin is <?php echo $CharSkin; ?>
-		<?php if($CharDist): ?>
-			 and <?php echo lcfirst($gender[3]) ?> has <?php echo lcfirst($CharDist) ?>.
-		<?php else: ?>
-			.
-		<?php endif; ?>
 	<?php else: ?>
 		Update failed...<br /><?php echo $UpdateQry; ?>
 	<?php endif; ?>
 <?php else: ?>
-	<?php if ($AuthCode != "AaronSaidYes"): ?>
+	<?php if (!$AuthCode == "AaronSaidYes"): ?>
 	Authorization (<?php echo $AuthCode ?>) Incorrect.<br />Try again: 
 		<form action='newchar.php' method='post'>
 			<input type='text' name='Auth'>
@@ -207,34 +142,18 @@ switch ($CharGend)
 								VALUES ('$CharName','$CharAge','$CharGend','$CharHeight','$CharSkin','$CharEyes','$CharHair','$CharDist','1')"))
 	{
 		echo "<h1>Character Created</h1>";
-		echo "<h2>Character Description for: ";
-		switch ($CharGend)
+		$qry="SELECT * FROM Character_Details WHERE Name = '" . $CharName . "'";
+
+		$GetCharUID=mysqli_query($ud,$qry);
+
+		while ($rows = mysqli_fetch_array($GetCharUID))
 		{
-			case "M":
-				$gender=array("Male","guy","dude","He","His");
-				break;
-			case "F":
-				$gender=array("Female","gal","chick","She","Her");
-				break;
-			case "Other":
-				$gender=array("Individual","person","person",$row['Name'],"Their");
-				break;
-			default:
-				echo "Error! " . $CharGend;
-				die();
+			$GetCharUIDo=$rows['UID'];
+			$_SESSION["CharUID"] = $rows['UID'];
 		}
-		echo $CharName;
-		echo "</h2><h3>" . $CharAge . " year-old " . $gender[0] . " of Rank 1</h3>";
-		echo "<p>" . $CharName . " is a " . $CharHeightCat . " " . $gender[1] . ", with " . $CharHair . " hair and eyes of "
-			. $CharEyes . ". " . $gender[4] . " skin is " . $CharSkin;
-		if($CharDist)
-		{
-			echo " and " . lcfirst($gender[3]) . " has " . lcfirst($CharDist) . ".";
-		}
-		else 
-		{
-		echo ".";
-		}
+
+		$CreateUser=mysqli_query($ud,"INSERT INTO Logins (LoginName, Password, CharUID, LastLogin)
+								  VALUES ('$UserName','$Pass','$GetCharUIDo','$t')");
 	}
 	else
 	{
@@ -242,19 +161,20 @@ switch ($CharGend)
 	}
 	?>
 <?php endif; ?>
+
+		<h2>Character Description for: <?php echo $CharName; ?></h2>
+		<h3><?php echo $CharAge ?> year-old <?php echo $gender[0] ?> of Rank 1</h3>
+		<p><?php echo $CharName ?> is a<?php echo $needAnN ?> <?php echo $CharHeightCat ?> <?php echo $gender[1] ?>,
+			with <?php echo $CharHair ?> hair and eyes of <?php echo $CharEyes ?>.
+			<?php echo $gender[4] ?> skin is <?php echo $CharSkin; ?>
+			<?php if($CharDist): ?>
+				" and <?php echo lcfirst($gender[3]) ?> has <?php lcfirst($CharDist) ?>.
+			<?php else: ?>
+				.
+			<?php endif; ?>
+
 <?php
-$qry="SELECT * FROM Character_Details WHERE Name = '" . $CharName . "'";
 
-$GetCharUID=mysqli_query($ud,$qry);
-
-while ($rows = mysqli_fetch_array($GetCharUID))
-{
-	$GetCharUIDo=$rows['UID'];
-	$_SESSION["CharUID"] = $rows['UID'];
-}
-
-$CreateUser=mysqli_query($ud,"INSERT INTO Logins (LoginName, Password, CharUID, LastLogin)
-								  VALUES ('$UserName','$Pass','$GetCharUIDo','$t')");
 
 echo "<p>Do you want to <a href='#' onClick='javascript:ShowCharUpdate();'>change anything</a>?";
 echo "<div id='updateChar' class='hidden'><form action='newchar.php' method='post'>
