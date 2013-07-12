@@ -69,7 +69,7 @@ $userResult = mysqli_affected_rows($ud);
 				<b>Please tell us about " . $desiredChar . "...</b>";
 	<?php else: ?>
 		<center><h2>Character name is availiable!</h2>
-		Please tell us about " . $desiredChar . "...";
+		Please tell us about <?php echo $desiredChar ?>...
 		<form action='newchar.php' method='post'>
 			<input type='hidden' name='Auth' value='AaronSaidYes'>
 	<?php endif; ?>
