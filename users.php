@@ -20,7 +20,7 @@ $allChars = mysqli_query($con,$allCharsStr);
 
 //Body
 ?>
-<div id='content'>
+<div class='content'>
 	<h2>List of all characters</h2>
 	<table width=85% border='1'>
 		<tr>
@@ -28,25 +28,26 @@ $allChars = mysqli_query($con,$allCharsStr);
 			<th width='45'>Rank</th>
 		</tr>
 		<?php
-	$rowCount = 0;
-	while($row = mysqli_fetch_array($allChars))
-	  {
-		  $ThisRowLoc = $row['Location'];
-		  if ($ThisRowLoc!=$LastRowLoc)
-		  {
-		  	echo "<tr>
-		  			<td colspan='2' align='center'><b><a href=goto.php?Loc=" . $row['LocUID'] . ">" . $row['Location'] . "</a><b></td>
-		  		  </tr>";
-		  }
-		  echo "<tr>
-		  		  	<td><a href='show.php?id=" . $row['UID'] . "'>" . $row['Name'] . "</a></td>
-		  		  	<td align='center'>" . $row['Rank'] . "</td>
-		  		</tr>";
-		  $LastRowLoc = $ThisRowLoc;
-	  }
-	  ?>
-	  </table>
-<?php
-//Footer
-require 'components/footer.php';
-?>
+		$rowCount = 0;
+		while($row = mysqli_fetch_array($allChars))
+		{
+		$ThisRowLoc = $row['Location'];
+		if ($ThisRowLoc!=$LastRowLoc)
+		{
+			?>
+			<tr>
+				<td colspan='2' align='center'><b><a href=goto.php?Loc=" . $row['LocUID'] . ">" . $row['Location'] . "</a><b></td>
+			</tr>
+			<?php
+		}
+		?>
+		<tr>
+			<td><a href='show.php?id=" . $row['UID'] . "'>" . $row['Name'] . "</a></td>
+			<td align='center'>" . $row['Rank'] . "</td>
+		</tr>
+		<?php
+		$LastRowLoc = $ThisRowLoc;
+	}
+	?>
+	</table>
+<?php require 'components/footer.php'; ?>
