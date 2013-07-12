@@ -42,12 +42,12 @@ if($GMTest[0] == "GM")
 
 // Set Query Strings
 {
-$charsHereStr="SELECT UID, Name, Rank FROM Character_Details WHERE Current_Location_W = " . $_SESSION["CurrLoc"];
-$locationStr="SELECT * FROM Locations WHERE UID = " . $_SESSION["CurrLoc"];
-$allCharsStr="SELECT `Character_Details`.`UID`, `Character_Details`.`Name`, 
-									  `Character_Details`.`Rank`, `Locations`.`LocationName_W` AS `Location`, `Locations`.`UID` AS `LocUID`
-								FROM `Character_Details` JOIN `Locations` ON `Character_Details`.`Current_Location_W`=`Locations`.`UID`
-								ORDER BY `Locations`.`UID` ASC";
+$charsHereStr=	"SELECT UID, Name, Rank FROM Character_Details WHERE Current_Location_W = " . $_SESSION["CurrLoc"];
+$locationStr=	"SELECT * FROM Locations WHERE UID = " . $_SESSION["CurrLoc"];
+$allCharsStr=	"SELECT `Character_Details`.`UID`, `Character_Details`.`Name`, 
+				  `Character_Details`.`Rank`, `Locations`.`LocationName_W` AS `Location`, `Locations`.`UID` AS `LocUID`
+			FROM `Character_Details` JOIN `Locations` ON `Character_Details`.`Current_Location_W`=`Locations`.`UID`
+			ORDER BY `Locations`.`UID` ASC";
 
 // "Every Page" queries
 $charsHere = mysqli_query($con,$charsHereStr);
@@ -68,25 +68,12 @@ $location = mysqli_query($con,$locationStr);
 }
 // Build page layout
 {
-
-	// Important Messages
-	{
 		require 'components/ImportantStuff.php';
-	}
 
-	//  Registration page
-	{
 		require 'components/register.php';
-	}
 
-	//   Navbar
-	{
 		require 'components/navbar.php';
-	}
-	
-	//   WhoIsHere bar
-	{
+
 		require 'components/whoishere.php';
-	}
 }
 ?>
