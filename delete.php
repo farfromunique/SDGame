@@ -18,11 +18,10 @@ require 'components/connections.php';
 
 if ($_REQUEST["Type"] == "comment")
 {
-	//Delete $_REQUEST["UID"]
 	$DelQry = "DELETE FROM Conversations WHERE UID = '" . $_REQUEST["UID"] . "'";
 	if (!$Del = mysqli_query($ud,$DelQry))
 	{
-		die();
+		die('Bad query: ' . $DelQry);
 	}
 }
 
