@@ -10,15 +10,9 @@ require 'components/header.php';
 
 //Body
 ?>
-<div class='content'><h2>You are currently at
-<?php
-while ($row = mysqli_fetch_array($location))
-	{
-	echo $row['LocationName_W'];
-	}
-echo ".</h2><h3>It is now " . $tf; 
-?>
-	</h3>
+<div class='content'>
+	<h2>You are currently at<?php echo $_SESSION["CurrLoc"]; ?></h2>
+	<h3>It is now <?php echo $tf; ?></h3>
 </div>
 <?php
 //Conversation
