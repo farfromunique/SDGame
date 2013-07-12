@@ -54,13 +54,13 @@ if (mysqli_affected_rows($pw) == 1) // Precisely 1 Login Name matches what was e
 				echo "Invalid Password. Try Again";
 				$_SESSION["LoggedIn"] = "No";
 				$_SESSION["CharUID"] = 0;
-				echo "<html>
+				?>
+				<html>
 				<head>
 				<link rel='stylesheet' type='text/css' href='basic.css'>
 				</head>
-				<div id='Register'"; //Closing Angle Bracket missing intentionally
+				<?php
 				require 'components/register.php';
-				echo "</div>";
 			}	
 		}
 }
@@ -68,12 +68,14 @@ else if (mysqli_affected_rows($pw) == 0) // Invalid Login Name
 {
 	$_SESSION["LoggedIn"] = "No";
 	$_SESSION["CharUID"] = 0;
-	echo "<html>
-	<head>
-	<link rel='stylesheet' type='text/css' href='basic.css'>
-	</head>
-	<body>";
-	echo "<span>Invalid Login Name. Try Again.</span";  //Closing Angle Bracket missing intentionally
+	?>
+	<html>
+		<head>
+			<link rel='stylesheet' type='text/css' href='basic.css'>
+		</head>
+		<body>
+			<span>Invalid Login Name. Try Again.</span>
+		<?php
 	require 'components/register.php';
 }
 else // Non-Unique LoginName (how did this happen?)
