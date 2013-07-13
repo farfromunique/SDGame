@@ -43,7 +43,7 @@ if($GMTest[0] == "GM")
 // Set Query Strings
 {
 $charsHereStr=	"SELECT UID, Name, Rank FROM Character_Details WHERE Current_Location_W = " . $_SESSION["CurrLoc"];
-$locationStr=	"SELECT * FROM Locations WHERE UID = " . $_SESSION["CurrLoc"];
+$locationStr=	"SELECT LocationName_W FROM Locations WHERE UID = " . $_SESSION["CurrLoc"];
 $allCharsStr=	"SELECT `Character_Details`.`UID`, `Character_Details`.`Name`, 
 				  `Character_Details`.`Rank`, `Locations`.`LocationName_W` AS `Location`, `Locations`.`UID` AS `LocUID`
 			FROM `Character_Details` JOIN `Locations` ON `Character_Details`.`Current_Location_W`=`Locations`.`UID`
