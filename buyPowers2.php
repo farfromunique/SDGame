@@ -182,12 +182,12 @@ require 'components/header.php';
 }
 
 ?>
-<script>";
+<script>
 	var Current_XP = <?php echo $XP ?>;
 
 	var AllPowers = new Array();
 		<?php for ($i=0;$i<count($AllPowers);$i++): ?>
-		AllPower <?php echo $i ?> = new Array('<?php echo $AllPowers[$i][0] ?>', '<?php echo $AllPowers[$i][1] ?>', '<?php echo $AllPowers[$i][2] ?>', '<?php echo $AllPowers[$i][3] ?>', '<?php echo $AllPowers[$i][4] ?>', '<?php echo $AllPowers[$i][5] ?>');
+		AllPower<?php echo $i ?> = new Array('<?php echo $AllPowers[$i][0] ?>', '<?php echo $AllPowers[$i][1] ?>', '<?php echo $AllPowers[$i][2] ?>', '<?php echo $AllPowers[$i][3] ?>', '<?php echo $AllPowers[$i][4] ?>', '<?php echo $AllPowers[$i][5] ?>');
 		<?php endfor; ?>
 
 		<?php for ($i=0;$i<count($AllPowers);$i++): ?>
@@ -218,14 +218,9 @@ require 'components/header.php';
 
 	<?php settype($UpgradesListSize[$i],"int"); ?>
 	<?php for ($i=0;$i<count($AbleToUpgrade);$i++): ?>
-		var UpgradeList<?php echo $AbleToUpgrade[$i][0] ?> = new Array();
+	var UpgradeList<?php echo $AbleToUpgrade[$i][0] ?> = new Array();
 		<?php for ($j=0;$j<=$UpgradesListSize[$i];$j++): ?>
-			UpgradeList<?php echo $AbleToUpgrade[$i][0] ?>.push(Array(
-				'<?php echo $UpgradeList[$i][$j][0] ?>',
-				'<?php echo $UpgradeList[$i][$j][1] ?>',
-				'<?php echo $UpgradeList[$i][$j][2] ?>',
-				'<?php echo $UpgradeList[$i][$j][3] ?>',
-				'<?php echo $UpgradeList[$i][$j][4] ?>'));
+			UpgradeList<?php echo $AbleToUpgrade[$i][0] ?>.push(Array('<?php echo $UpgradeList[$i][$j][0] ?>','<?php echo $UpgradeList[$i][$j][1] ?>','<?php echo $UpgradeList[$i][$j][2] ?>','<?php echo $UpgradeList[$i][$j][3] ?>','<?php echo $UpgradeList[$i][$j][4] ?>'));
 		<?php endfor; ?>
 	<?php endfor; ?>
 </script>
@@ -235,12 +230,19 @@ require 'components/header.php';
 	<?php echo "<h3>You currently have <span id='XP'>" . $XP . "</span> XP to spend.</h3>"; ?>
 	
 	<div class='selectIt'>
-		<a href='#' onClick='SpendReview()'>Review</a> | 
-		<a href='#' onClick='SpendNewPower()'>New Power</a> | 
-		<a href='#' onClick='SpendUpgrade()'>Upgrade Power</a>
+		<a href='#' onClick='Review()'>Review</a> | 
+		<a href='#' onClick='NewPower()'>New Power</a> | 
+		<a href='#' onClick='Upgrade()'>Upgrade Power</a>
 	</div>
 	
-	<div id='SpendReview' class='spend'></div>
+	<div id='SpendReview' class='spend'>
+	You currently have the following powers:
+	<ul>
+	<?php for ($i=0;$i<count($CurrPowers);$i++): ?>
+		<li><?php echo $CurrPowers[$i][1]; ?> - <?php echo $CurrPowers[$i][2]; ?></li>
+	<?php endfor; ?>
+	</ul>
+	</div>
 
 	<div id='SpendBuyNew' class='spend'>
 		Select power to purchase:
@@ -248,7 +250,7 @@ require 'components/header.php';
 			<option selected='true'>-- Select A Power --</option>
 			
 			<?php for ($i=0;$i<count($AllPowers);$i++): ?>
-			<option id='BuyPowerUID<?php echo $AllPowers[$i][0] ?>'><?php echo $AllPowers[$i][1] ?></option>
+			<option id='BuyPowerUID<?php echo $AllPowers[$i][0]; ?>'><?php echo $AllPowers[$i][1]; ?></option>
 			<?php endfor; ?>
 			
 		</select>
