@@ -50,11 +50,19 @@ function Review()
 
 function NewPower()
 {
+	for (i=0;i<document.getElementsByClassName("spend").length;i++)
+	{
+		document.getElementsByClassName("spend")[i].style.display='none';
+	}
 	document.getElementById('SpendBuyNew').style.display='block';
 }
 
 function Upgrade()
 {
+	for (i=0;i<document.getElementsByClassName("spend").length;i++)
+	{
+		document.getElementsByClassName("spend")[i].style.display='none';
+	}
 	document.getElementById('SpendUpgrade').style.display='block';
 }
 
@@ -155,3 +163,10 @@ function upgradeSelected(powerID,sourceID)
 	document.getElementById("thirdUpgrade").innerHTML = FormBuild;
 	document.getElementById("thirdUpgrade").style.display='inline';	
 }
+
+function showLocations()
+{
+	hideAllHidden();
+	document.getElementById('Location-Insert').style.display='inline';
+}
+
