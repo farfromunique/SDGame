@@ -9,15 +9,23 @@
 require 'components/header.php';
 
 // Page-Specific variables
-$ExistingPowerStr="SELECT UID, Power, AddonType, Name FROM Powers";
+$ExistingPowerStr="SELECT UID, Power, AddonType, Name FROM Powers ORDER BY Power, AddonType";
 // Page-Specific queries
 $ExistingPowersQry=mysqli_query($con,$ExistingPowerStr);
+$i=0;
 while ($row=mysqli_fetch_array($ExistingPowersQry))
 {
-	$Powers[i][0] = $row['UID'];
-	$Powers[i][1] = $row['Power'];
-	$Powers[i][2] = $row['AddonType'];
-	$Powers[i][3] = $row['Name'];
+	$Powers[$i][0] = $row['UID'];
+	if ($row['AddonType'] == "Base")
+	{
+		$Powers[$i][2] = "Base";
+	}
+	else
+	{
+		$Powers[$i][2] = $row['Name'];
+	}
+	$Powers[$i][1] = $row['Power'];
+	$i++;
 }
 //Body
 ?>
@@ -31,7 +39,7 @@ while ($row=mysqli_fetch_array($ExistingPowersQry))
 	<center>
 	What would you like to insert? <br />
 	<a href='#' onClick='showLocations()'>Locations</a> | 
-	<a href='#'>Powers</a>
+	<a href='#' onClick='showPowers()'>Powers</a>
 	</center>
 
 	<div id='Location-Insert' class='hidden'>
@@ -54,20 +62,24 @@ while ($row=mysqli_fetch_array($ExistingPowersQry))
 					<option value='Choice'>Choice</option>
 					<option value='Positive'>Positive</option>
 					<option value='Negative'>Negative</option>
-				</select>
-			<label for='Name'>Addon Name</label><input type='text' name='Name' id='Name'>
-			<label for='Description'>Long Description</label>
+				</select><br />
+			<label for='Name'>Addon Name</label><input type='text' name='Name' id='Name'><br />
+			<label for='Description'>Long Description</label><br />
 				<textarea id='Description' rows='3' cols='60'></textarea>
-			<label for='XP_Cost'>XP Cost</label><input type='text' id='XP_Cost' name='XP_Cost'>
+			<label for='XP_Cost'>XP Cost</label><input type='text' id='XP_Cost' name='XP_Cost'><br />
 			<label for='Requires_Specifics'>This power requires details be entered</label>
-				<input type='checkbox' id='Requires_Specifics' name='Requires_Specifics'>
+				<input type='checkbox' id='Requires_Specifics' name='Requires_Specifics'><br />
 			<label for='Requires_Other_Power'>This power has a prerequisite Power</label>
 				<select id='Requires_Other_Power' name='Requires_Other_Power'>
 					<option value='(None)' selected='true'>(None)</option>
-					<?php for ($i=0;$i<count($Powers);$i++): ?>
-					<option value='<?php echo $Powers[i][0] ?>'><?php echo $Powers[i][1] ?>: <?php echo $Powers[i][3] ?>
-					<?php endfor; ?>
+					<?php 
+						for ($j=0;$j<$i;$j++)
+						{
+							echo "<option value='" . $Powers[$j][0] . "'>" . $Powers[$j][1] . ": " . $Powers[$j][2] . "</option>";
+						}
+					?>
 				</select>
+			<input type='submit' value='Add!'>
 		</form>
 	</div>
 <?php endif; ?>
