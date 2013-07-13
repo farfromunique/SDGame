@@ -33,7 +33,7 @@ $CharHeight=$_POST["Height"];
 $CharSkin=$_POST["Skin"];
 $CharEyes=$_POST["Eyes"];
 $CharHair=$_POST["Hair"];
-$CharDist=$_POST["DistinguishingMarks"];
+$CharDist=$_POST["Distinguishing_Marks"];
 $CharUID = $_SESSION["CharUID"];
 $UpdateUID = $_POST["UpdateUID"];
 $currentLoc = $_SESSION["CurrLoc"];
@@ -92,8 +92,6 @@ switch ($CharGend)
 		die("Error! " . $CharGend);
 }
 
-
-
 ?>
 
 <div class='content'>
@@ -117,7 +115,9 @@ switch ($CharGend)
 	<?php else: ?>
 		Update failed...<br /><?php echo $UpdateQry; ?>
 	<?php endif; ?>
+	
 <?php else: ?>
+
 	<?php if (!$AuthCode == "AaronSaidYes"): ?>
 	Authorization (<?php echo $AuthCode ?>) Incorrect.<br />Try again: 
 		<form action='newchar.php' method='post'>
@@ -131,15 +131,15 @@ switch ($CharGend)
 			<input type='hidden' name='Skin' value='<?php echo $CharSkin ?>'>
 			<input type='hidden' name='Eyes' value='<?php echo $CharEyes ?>'>
 			<input type='hidden' name='Hair' value='<?php echo $CharHair ?>'>
-			<input type='hidden' name='DistinguishingMarks' value='<?php echo $CharDist ?>'>
+			<input type='hidden' name='Distinguishing_Marks' value='<?php echo $CharDist ?>'>
 			<input type='submit' value='Check Code'>
 		</form>
 		<br />Or <a href='logout.php'>go back</a>.
 		<?php die(); ?>
 	<?php endif; ?>
 	<?php
-	if ($CreateChar=mysqli_query($ud,"INSERT INTO Character_Details (Name, Age, Gender, Height, Skin, Eyes, Hair, Distinguishing_Marks, Current_Location_W)
-								VALUES ('$CharName','$CharAge','$CharGend','$CharHeight','$CharSkin','$CharEyes','$CharHair','$CharDist','1')"))
+	if ($CreateChar=mysqli_query($ud,"INSERT INTO Character_Details (Name, Age, Gender, Height, Skin, Eyes, Hair, Distinguishing_Marks)
+								VALUES ('$CharName','$CharAge','$CharGend','$CharHeight','$CharSkin','$CharEyes','$CharHair','$CharDist')"))
 	{
 		echo "<h1>Character Created</h1>";
 		$qry="SELECT * FROM Character_Details WHERE Name = '" . $CharName . "'";
@@ -168,7 +168,7 @@ switch ($CharGend)
 			with <?php echo $CharHair ?> hair and eyes of <?php echo $CharEyes ?>.
 			<?php echo $gender[4] ?> skin is <?php echo $CharSkin; ?>
 			<?php if($CharDist): ?>
-				" and <?php echo lcfirst($gender[3]) ?> has <?php lcfirst($CharDist) ?>.
+				and <?php echo lcfirst($gender[3]) ?> has <?php echo lcfirst($CharDist) ?>.
 			<?php else: ?>
 				.
 			<?php endif; ?>
@@ -207,7 +207,7 @@ echo "<div id='updateChar' class='hidden'><form action='newchar.php' method='pos
 			Skin Color: <input name='Skin' type='text' value='" . $CharSkin . "'><br />
 			Eye Color: <input name='Eyes' type='text' value='" . $CharEyes . "'><br />
 			Hair Color: <input name='Hair' type='text' value='" . $CharHair . "'><br />
-			Any Distinguishing Marks? <br /><textarea name='DistinguishingMarks' rows='2' cols='30'>" . $CharDist . "</textarea><br />
+			Any Distinguishing Marks? <br /><textarea name='Distinguishing_Marks' rows='2' cols='30'>" . $CharDist . "</textarea><br />
 			<input type='Submit' value='Generate!'>
 			</form>
 		</div>";
