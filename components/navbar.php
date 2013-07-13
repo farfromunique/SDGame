@@ -26,7 +26,7 @@ Locations<br />
 <?php if ($_SESSION["IsGM"] == True): ?>
 	<b>GM-Only Pages</b>
 	<ul>
-	
+		<li><a href='insert.php'>Add Stuff</a></li>
 	</ul>
 <?php endif; ?>
 </div>
