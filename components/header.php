@@ -32,7 +32,7 @@ $tzOffset=($u-$t); // Number of seconds difference from server (UTC) to user
 // Set Other Variabls
 {
 $currentChar = $_SESSION["CharUID"];
-//   Is User a GM?
+//   Is User a GM? 
 {
 $GMTest = explode("-",$_SESSION["CharName"]);
 if($GMTest[0] == "GM")
