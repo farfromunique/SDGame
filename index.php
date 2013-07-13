@@ -11,7 +11,7 @@ require 'components/header.php';
 //Body
 ?>
 <div class='content'>
-	<h2>You are currently at<?php echo $_SESSION["CurrLoc"]; ?></h2>
+	<h2>You are currently at <?php echo $_SESSION["CurrLocName"]; ?></h2>
 	<h3>It is now <?php echo $tf; ?></h3>
 </div>
 <?php
