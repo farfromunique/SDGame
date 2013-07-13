@@ -26,10 +26,10 @@ require 'components/header.php';
 	
 	// Current Powers Query
 	{
-	$CurrPowersStr = "SELECT PowersLink.PowerSpecifics AS Specifics, Powers.Description AS Description, Powers.Power AS Power, Powers.Name AS Name, Powers.AddonType AS AddonType, Powers.UID AS UID
+	$CurrPowersStr = 'SELECT PowersLink.PowerSpecifics AS Specifics, Powers.Description AS Description, Powers.Power AS Power, Powers.Name AS Name, Powers.AddonType AS AddonType, Powers.UID AS UID
 				FROM PowersLink
 				INNER JOIN Powers ON PowersLink.PowerUID = Powers.UID
-				WHERE PowersLink.CharUID = " . $_SESSION["CharUID"];
+				WHERE PowersLink.CharUID = ' . $_SESSION["CharUID"] . ' ORDER BY Power';
 	$GetCurrPowers = "";
 	$CurrPowers = array();
 	}
