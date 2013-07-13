@@ -1,6 +1,6 @@
 function Collapse_Power(id)
 {
-  b_id = "more_" + id;
+	b_id = "more_" + id;
 	a_id = "less_" + id;
 	document.getElementById(id).style.display='none';
 	document.getElementById(a_id).style.display='none';
@@ -39,31 +39,23 @@ function hideAllHidden()
 	}
 }
 
-function SpendReview()
+function Review()
 {
+	for (i=0;i<document.getElementsByClassName("spend").length;i++)
+	{
+		document.getElementsByClassName("spend")[i].style.display='none';
+	}
 	document.getElementById('SpendReview').style.display='block';
-	document.getElementById('SpendBuyNew').style.display='none';
-	document.getElementById('SpendUpgrade').style.display='none';
 }
 
-function SpendNewPower()
+function NewPower()
 {
-	document.getElementById('SpendReview').style.display='none';
 	document.getElementById('SpendBuyNew').style.display='block';
-	document.getElementById('SpendUpgrade').style.display='none';
 }
 
-function SpendUpgrade()
+function Upgrade()
 {
-	document.getElementById('SpendReview').style.display='none';
-	document.getElementById('SpendBuyNew').style.display='none';
 	document.getElementById('SpendUpgrade').style.display='block';
-}
-
-function upgradeThis(passed)
-{
-	document.getElementById("secondUpgrade").innerHTML=JSON.parse(passed);
-	document.getElementById("secondUpgrade").style.display='block';
 }
 
 function buyThis(passed)
@@ -82,8 +74,10 @@ function upgradeList(passed)
 	var PowerArray = [];
 	var DetailPowerID = [];
 	var EscapedPowerID = [];
+	var fromPower;
 	PowerArray.push([]);
 	PowerArray = window[passed];
+	fromPower = passed.substr(passed.length-2,2);
 	var OutputThing="";
 	for (i=0;i<PowerArray.length;i++)
 	{
@@ -92,7 +86,11 @@ function upgradeList(passed)
 	
 	for (i=0;i<PowerArray.length;i++)
 	{
-		OutputThing = OutputThing + "<br><a href='#' onClick='showUpgradeDetails(" + PowerArray[i][0] + ")'>" + PowerArray[i][2] + "</a><div class='hidden' id='" + DetailPowerID[i] + "'>" + PowerArray[i][3] + "</div>";
+		selector = i + ', ' + fromPower;
+		OutputThing = OutputThing + "<br><a href='#' onClick='showUpgradeDetails(" + PowerArray[i][0] + ")'>" + PowerArray[i][1] + " - " + PowerArray[i][2] + "</a>";
+		OutputThing = OutputThing + "<div class='hidden' id='" + DetailPowerID[i] + "'>" + PowerArray[i][3] + "<br />";
+		OutputThing = OutputThing + "<b>XP Cost:</b>" + PowerArray[i][4] + "<br /><br />"
+		OutputThing = OutputThing + "<a href='#' onClick='upgradeSelected(" + selector + ")'>Buy This Power</a></div>";
 	}
 	document.getElementById("secondUpgrade").innerHTML=OutputThing;
 	document.getElementById("secondUpgrade").style.display='block';
@@ -122,6 +120,7 @@ function chooseToUpgrade(passed,id)
 	{
 		OutputThing = OutputThing + "<br>" + PowerArray[i][2] + "<div class='hidden' id='" + BuyPowerID[i] + "'>" + PowerArray[i][3] + "</div>";
 	}
+	document.getElementById('thirdUpgrade').innerHTML=OutputThing;
 	document.getElementById('thirdUpgrade').style.display='block';
 }
 
@@ -141,5 +140,18 @@ function buySelected(powerID)
 	}
 	FormBuild = FormBuild + "</form>";
 	document.getElementById("thirdBuyNew").innerHTML = FormBuild;
-	document.getElementById("thirdBuyNew").style.display='inline';
+	document.getElementById("thirdBuyNew").style.display='inline';	
+}
+
+function upgradeSelected(powerID,sourceID)
+{
+	var myXP = document.getElementById("XP").innerHTML;
+	var FormBuild = "<form action='buyPowers.php' method='POST'>";
+	FormBuild = FormBuild + "<input type='hidden' name='PowerUID' value='" + window['UpgradeList' + sourceID][powerID][0] + "'>";
+	FormBuild = FormBuild + "<input type='hidden' name='XP_Cost' value='" + window['UpgradeList' + sourceID][powerID][4] + "'>";
+	var NotEnoughXP = "You do not have enough XP to afford this Power.";
+	FormBuild = FormBuild + "<input type='submit' value='Buy it!'>";
+	FormBuild = FormBuild + "</form>";
+	document.getElementById("thirdUpgrade").innerHTML = FormBuild;
+	document.getElementById("thirdUpgrade").style.display='inline';	
 }
