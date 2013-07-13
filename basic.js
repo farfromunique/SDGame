@@ -85,6 +85,10 @@ function upgradeList(passed)
 	var fromPower;
 	PowerArray.push([]);
 	PowerArray = window[passed];
+	if (PowerArray[0][0] == "");
+	{
+		return false;
+	}
 	fromPower = passed.substr(passed.length-2,2);
 	var OutputThing="";
 	for (i=0;i<PowerArray.length;i++)
@@ -170,3 +174,8 @@ function showLocations()
 	document.getElementById('Location-Insert').style.display='inline';
 }
 
+function showPowers()
+{
+	hideAllHidden();
+	document.getElementById('Power-Insert').style.display='inline';
+}

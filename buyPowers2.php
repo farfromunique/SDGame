@@ -12,9 +12,9 @@ require 'components/header.php';
 {
 	// XP Query
 	{
-		$XPStr = "SELECT XP_Current FROM Character_Details WHERE UID = " . $_SESSION["CharUID"];
-		$GetXP = "";
-		$XP = "";
+	$XPStr = "SELECT XP_Current FROM Character_Details WHERE UID = " . $_SESSION["CharUID"];
+	$GetXP = "";
+	$XP = "";
 	}
 
 	// All Powers Query
