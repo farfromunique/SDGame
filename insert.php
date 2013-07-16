@@ -65,7 +65,7 @@ while ($row=mysqli_fetch_array($ExistingPowersQry))
 				</select><br />
 			<label for='Name'>Addon Name</label><input type='text' name='Name' id='Name'><br />
 			<label for='Description'>Long Description</label><br />
-				<textarea id='Description' rows='3' cols='60'></textarea>
+				<textarea id='Description' Name='Description' rows='3' cols='60'></textarea>
 			<label for='XP_Cost'>XP Cost</label><input type='text' id='XP_Cost' name='XP_Cost'><br />
 			<label for='Requires_Specifics'>This power requires details be entered</label>
 				<input type='checkbox' id='Requires_Specifics' name='Requires_Specifics'><br />
