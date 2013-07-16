@@ -30,7 +30,7 @@ switch ($InsertType)
 		header('Location: http://game.acwpd.com/');
 		break;
 }
-
+ 
 if (!$Qry=mysqli_query($ud,$UpdateString))
 {
 	die('Error in query: ' .  $UpdateString);
