@@ -83,9 +83,8 @@ function upgradeList(passed)
 	var DetailPowerID = [];
 	var EscapedPowerID = [];
 	var fromPower;
-	PowerArray.push([]);
 	PowerArray = window[passed];
-	if (PowerArray[0][0] == "");
+	if (PowerArray[0][0].length == 0)
 	{
 		return false;
 	}
