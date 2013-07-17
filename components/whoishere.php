@@ -10,7 +10,7 @@
 			<th width=25%>Rank</th>
 		</tr>
 		<?php while($row = mysqli_fetch_array($charsHere)): ?>
-			<?php if(!$row['UID']=$currentChar): ?>
+			<?php if($row['UID'] != $_SESSION['CharUID']): ?>
 				<tr>
 					<td><a href='show.php?id=<?php echo $row['UID'] ?>'><?php echo $row['Name'] ?></a></td>
 					<td align='center'><?php echo $row['Rank'] ?></td>
