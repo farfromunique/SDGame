@@ -263,8 +263,12 @@ require 'components/header.php';
 		Select power to upgrade:
 		<ul>
 		<?php for ($i=0;$i<count($AbleToUpgrade);$i++): ?>
+			<?php if (count($UpgradeList[$i]) == 0): ?>
+			<li><?php echo $AbleToUpgrade[$i][1] ?> - <?php echo $AbleToUpgrade[$i][2] ?></li>
+			<?php else: ?>
 			<li><a href='#' name='UpgradeList<?php echo $AbleToUpgrade[$i][0] ?>' onClick='upgradeList(this.name)'>
 				<?php echo $AbleToUpgrade[$i][1] ?> - <?php echo $AbleToUpgrade[$i][2] ?></a></li>
+			<?php endif; ?>
 		<?php endfor; ?>
 		
 		<div id='secondUpgrade' class='hidden'></div>
