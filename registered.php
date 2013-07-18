@@ -66,7 +66,7 @@ $userResult = mysqli_affected_rows($ud);
 		<br />Please input your authorization code below:</h2>
 		<form action='newchar.php' method='post'>
 			Authorization Code: <input type='text' name='Auth'><br /><br />
-				<b>Please tell us about " . $desiredChar . "...</b>";
+				<b>Please tell us about <?php echo $desiredChar ?>...</b>";
 	<?php else: ?>
 		<center><h2>Character name is availiable!</h2>
 		Please tell us about <?php echo $desiredChar ?>...
