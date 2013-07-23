@@ -44,6 +44,6 @@ if (!$Qry=mysqli_query($ud,$UpdateString))
 	die('Error in query: ' .  $UpdateString);
 }
 
-header("Location: http://$host$uri/$extra")
+header("Location: http://$host$uri/$extra");
 exit;
 ?>
