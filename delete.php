@@ -7,11 +7,16 @@
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 //  TZ: String containng a timezone
 
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = 'index.php';
+
 session_start();
 
 if (!$_SESSION["IsGM"] or !isset($_REQUEST["Type"]))
 {
-	header('Location: http://game.acwpd.com/');
+	header("Location: http://$host$uri/$extra");
+	exit;
 }
 
 require 'components/connections.php';
@@ -25,7 +30,9 @@ if ($_REQUEST["Type"] == "comment")
 	}
 }
 
-header('Location: http://game.acwpd.com/');
-
-require 'components/footer.php';
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = 'index.php';
+header("Location: http://$host$uri/$extra");
+exit;
 ?>
