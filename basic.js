@@ -138,7 +138,7 @@ function chooseToUpgrade(passed,id)
 function buySelected(powerID)
 {
 	var myXP = document.getElementById("XP").innerHTML;
-	var FormBuild = "<form action='buyPowers.php' method='POST'>";
+	var FormBuild = "<form action='buyPowers2.php' method='POST'>";
 	FormBuild = FormBuild + "<input type='hidden' name='PowerUID' value='" + window['AllPower' + powerID][0] + "'>";
 	FormBuild = FormBuild + "<input type='hidden' name='XP_Cost' value='" + window['AllPower' + powerID][5] + "'>";
 	var NotEnoughXP = "You do not have enough XP to afford this Power.";
@@ -157,7 +157,7 @@ function buySelected(powerID)
 function upgradeSelected(powerID,sourceID)
 {
 	var myXP = document.getElementById("XP").innerHTML;
-	var FormBuild = "<form action='buyPowers.php' method='POST'>";
+	var FormBuild = "<form action='buyPowers2.php' method='POST'>";
 	FormBuild = FormBuild + "<input type='hidden' name='PowerUID' value='" + window['UpgradeList' + sourceID][powerID][0] + "'>";
 	FormBuild = FormBuild + "<input type='hidden' name='XP_Cost' value='" + window['UpgradeList' + sourceID][powerID][4] + "'>";
 	if (window['UpgradeList' + sourceID][powerID][5] == "1")
