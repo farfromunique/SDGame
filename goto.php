@@ -25,12 +25,14 @@ while($row = mysqli_fetch_array($GetLoc))
 {
 	$_SESSION["CurrLoc"] = $row['Current_Location_W'];
 }
-
 while($row = mysqli_fetch_array($GetName))
 {
 	$_SESSION["CurrLocName"] = $row['LocationName_W'];
 }
 
-header('Location: http://game.acwpd.com/');
-require 'components/footer.php';
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = 'index.php';
+header("Location: http://$host$uri/$extra");
+exit;
 ?>
