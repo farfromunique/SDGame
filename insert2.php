@@ -1,7 +1,15 @@
 <?php
+
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = 'insert.php';
+
 session_start();
 if (!$_SESSION["IsGM"])
-{ header('Location: http://game.acwpd.com/'); }
+{
+	header("Location: http://$host$uri/$extra"); 
+	exit;
+}
 require 'components/connections.php';
 
 $InsertType = $_POST["type"];
@@ -27,13 +35,15 @@ switch ($InsertType)
 		break;
 	
 	default:
-		header('Location: http://game.acwpd.com/');
+		header("Location: http://$host$uri/$extra");
 		break;
 }
- 
+
 if (!$Qry=mysqli_query($ud,$UpdateString))
 {
 	die('Error in query: ' .  $UpdateString);
 }
-header('Location: http://game.acwpd.com/insert.php');
+
+header("Location: http://$host$uri/$extra")
+exit;
 ?>
