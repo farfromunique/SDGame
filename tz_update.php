@@ -27,7 +27,11 @@ $SetMyTZ = mysqli_query($ud,$SetLoginTZ);
 if(mysqli_affected_rows($ud) == 1)
 {
 	$_SESSION["TZ"] = $SetTZ;
-	header('Location: http://game.acwpd.com/');
+	$host  = $_SERVER['HTTP_HOST'];
+	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+	$extra = 'index.php';
+	header("Location: http://$host$uri/$extra");
+	exit;
 }
 else
 {
