@@ -9,30 +9,44 @@
 
 session_start();
 
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+$extra = 'index.php';
+
 require 'components/connections.php';
 
 $targetLoc = $_REQUEST["Loc"];
 
-$currentLocationGetStr = "SELECT Current_Location_W FROM Character_Details WHERE UID = " . $_SESSION["CharUID"];
-$currentLocationSetStr = "UPDATE Character_Details SET Current_Location_W='" . $_REQUEST["Loc"] . "' WHERE UID = " . $_SESSION["CharUID"];
-$currentLocationName = "SELECT LocationName_W FROM Locations WHERE UID = " . $_REQUEST["Loc"];
-
-$SetLoc = mysqli_query($ud,$currentLocationSetStr);
-$GetLoc = mysqli_query($ud,$currentLocationGetStr);
-$GetName = mysqli_query($ud,$currentLocationName);
-
-while($row = mysqli_fetch_array($GetLoc))
+$validLocation = false;
+$allLocations = 'SELECT UID FROM Locations';
+$allLocs = mysqli_query($con, $allLocations);
+while ($row['UID'] = mysqli_fetch_array($allLocs))
 {
-	$_SESSION["CurrLoc"] = $row['Current_Location_W'];
+	$i = 0;
+	if ($targetLoc == $row['UID'][$i])
+	{
+		$currentLocationGetStr = "SELECT Current_Location_W FROM Character_Details WHERE UID = " . $_SESSION["CharUID"];
+		$currentLocationSetStr = "UPDATE Character_Details SET Current_Location_W='" . $_REQUEST["Loc"] . "' WHERE UID = " . $_SESSION["CharUID"];
+		$currentLocationName = "SELECT LocationName_W FROM Locations WHERE UID = " . $_REQUEST["Loc"];
+		
+		$SetLoc = mysqli_query($ud,$currentLocationSetStr);
+		$GetLoc = mysqli_query($ud,$currentLocationGetStr);
+		$GetName = mysqli_query($ud,$currentLocationName);
+		
+		while($row = mysqli_fetch_array($GetLoc))
+		{
+			$_SESSION["CurrLoc"] = $row['Current_Location_W'];
+		}
+		while($row = mysqli_fetch_array($GetName))
+		{
+			$_SESSION["CurrLocName"] = $row['LocationName_W'];
+		}
+		header("Location: http://$host$uri/$extra");
+		exit;
+	} else {
+		$i++;
+	}
 }
-while($row = mysqli_fetch_array($GetName))
-{
-	$_SESSION["CurrLocName"] = $row['LocationName_W'];
-}
-
-$host  = $_SERVER['HTTP_HOST'];
-$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'index.php';
 header("Location: http://$host$uri/$extra");
 exit;
 ?>
