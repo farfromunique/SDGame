@@ -9,8 +9,7 @@
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'index.php';
-
+$extra = 'converse.php';
 session_start();
 
 if (!$_SESSION["IsGM"] or !isset($_REQUEST["Type"]))
@@ -19,7 +18,7 @@ if (!$_SESSION["IsGM"] or !isset($_REQUEST["Type"]))
 	exit;
 }
 
-require 'components/connections.php';
+require 'connections.php';
 
 if ($_REQUEST["Type"] == "comment")
 {
