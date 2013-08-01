@@ -9,7 +9,7 @@
 
 session_start();
 
-require 'components/connections.php';
+require 'connections.php';
 
 $SetTZ = $_REQUEST["TZ"];
 
@@ -24,20 +24,10 @@ $SetLoginTZ = "UPDATE Logins SET TimeZone='" . $_REQUEST["TZ"] . "' WHERE UID = 
 
 $SetMyTZ = mysqli_query($ud,$SetLoginTZ);
 
-if(mysqli_affected_rows($ud) == 1)
-{
-	$_SESSION["TZ"] = $SetTZ;
-	$host  = $_SERVER['HTTP_HOST'];
-	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-	$extra = 'index.php';
-	header("Location: http://$host$uri/$extra");
-	exit;
-}
-else
-{
-	echo "Try again.<br />" .
-	$SetLoginTZ
-	 . "<br /><a href='TZChoice.php'>Go Back</a>";
-}
-require 'components/footer.php';
+$_SESSION["TZ"] = $SetTZ;
+$host  = $_SERVER['HTTP_HOST'];
+$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+header("Location: http://$host$uri/");
+exit;
+
 ?>

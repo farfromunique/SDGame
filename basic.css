@@ -20,6 +20,10 @@ div {
 table {
 	text-align: left;
 }
+span:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
 .important {
 	background-color:#00ff00;
 	border: solid #ffff00;
@@ -33,9 +37,6 @@ table {
 	left: 775px;
 	top:10px;
 	width: 185px;
-	border: solid;
-	border-width: 0;
-	border-left: 1px;
 	background-color: #a9fc9a;
 	z-index:1;
 	text-align: center;
@@ -48,9 +49,18 @@ table {
 	background-color: #a9fc9a;
 	z-index:1;
 }
-.content {
+.headBar {
 	position: absolute;
 	top: 10px;
+	left: 235px;
+	width: 500px;
+	height: 60px;
+	background-color: #99fdd8;
+	z-index:1;
+}
+.content {
+	position: absolute;
+	top: 105px;
 	left: 235px;
 	width: 500px;
 	background-color: #99fdd8;
@@ -81,10 +91,9 @@ table {
 	background-color: #c0c0c0;
 	left: 5px;
 	top: 5px;
-	width: 90%;
+	width: 100%;
 	z-index:5;
 }
-
 .selectIt {
 	text-align: center;
 }
@@ -94,8 +103,9 @@ table {
 .GM_Button {
 	float:left;
 	margin-left: 0;
+	margin-right:5px;
 	width:60px;
-	height:10px;
+	height:45px;
 }
 .comment {
 	padding-top:5px;

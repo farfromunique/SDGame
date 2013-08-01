@@ -1,18 +1,22 @@
 <?php
-// Availiable $_SESSION variables:
-//  CurrLoc: Integer tied to Locations Table UID
-//  CharUID: Integer tied to Character_Details UID
-//  CharName: String of the Characater Name
-//  IsGM: Boolean of whether or not this is a GM account
-//  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
-//  TZ: String containng a timezone
+#remove the directory path we don't want 
+$request  = str_replace("", "", $_SERVER['REQUEST_URI']); 
+#split the path by '/'  
+$site_array  = mb_split("/", $request);  
+
+foreach($site_array as $key => $value)
+{ 
+	if($value == "") { 
+		unset($site_array[$key]); 
+	} 
+} 
+
+$params = array_values($site_array); 
 
 
-// This page is not designed to be accessed by a human, but rather by a kron-job
+require 'connections.php';
 
-require 'components/connections.php';
-
-switch ($_REQUEST["Type"])
+switch ($params[1])
 {
 	case "Daily":
 		$ArchiveQry1="INSERT INTO Conversations_bkup SELECT * FROM Conversations WHERE Conversations.TDS < now()-86400";
@@ -25,6 +29,8 @@ switch ($_REQUEST["Type"])
 		$qry=mysqli_query($ud,$OptimizeQry1);
 		$qry=mysqli_query($ud,$OptimizeQry2);
 		
+		echo '<!-- Daily Done -->';
+		
 		break;
 	case "Weekly":
 		$OptimizeQryBase="OPTIMIZE TABLE ";
@@ -33,6 +39,9 @@ switch ($_REQUEST["Type"])
 		{
 			$qry=mysqli_query($ud,$OptimizeQryBase . $Tables[$i]);
 		}
+		
+		echo '<!-- Weekly Done -->';
+		
 		break;
 }
 mysqli_close($ud);

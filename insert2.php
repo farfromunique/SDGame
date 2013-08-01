@@ -2,7 +2,7 @@
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'insert.php';
+$extra = '/insert';
 
 session_start();
 if (!$_SESSION["IsGM"])
@@ -10,7 +10,7 @@ if (!$_SESSION["IsGM"])
 	header("Location: http://$host$uri/$extra"); 
 	exit;
 }
-require 'components/connections.php';
+require 'connections.php';
 
 $InsertType = $_POST["type"];
 

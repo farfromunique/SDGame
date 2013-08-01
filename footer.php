@@ -7,8 +7,13 @@
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 
 //footer file
-$LoginTimeStr = "UPDATE `Logins` SET `LastLogin`='" . $tu . "' WHERE `CharUID`='" . $_SESSION["CharUID"] . "'";
+session_start();
+
+require 'time.php';
+
+$LoginTimeStr = "UPDATE Logins SET LastLogin='" . $tu . "' WHERE CharUID='" . $_SESSION["CharUID"] . "'";
 ?>
+
 <?php if (!$LoginTimeUpdate = mysqli_query($ud,$LoginTimeStr)): ?>
 	<div class='important' onclick='javascript:hideMessage();'>Not Updated<br /><?php echo $LoginTimeStr?></div>
 <?php endif; ?>
@@ -27,4 +32,5 @@ if (isset($pw))
 }
 ?>
 
-</body></html>
+</body>
+</html>

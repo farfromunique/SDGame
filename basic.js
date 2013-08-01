@@ -156,16 +156,22 @@ function buySelected(powerID)
 
 function upgradeSelected(powerID,sourceID)
 {
-	var myXP = document.getElementById("XP").innerHTML;
-	var FormBuild = "<form action='buyPowers2.php' method='POST'>";
-	FormBuild = FormBuild + "<input type='hidden' name='PowerUID' value='" + window['UpgradeList' + sourceID][powerID][0] + "'>";
-	FormBuild = FormBuild + "<input type='hidden' name='XP_Cost' value='" + window['UpgradeList' + sourceID][powerID][4] + "'>";
+	var FormBuild = "";
+	var PowID = window['UpgradeList' + sourceID][powerID][0];
+	var PowXP = window['UpgradeList' + sourceID][powerID][4];
+
 	if (window['UpgradeList' + sourceID][powerID][5] == "1")
 	{
-		FormBuild = FormBuild + "Enter Specifics for the Power: <input type='text' name='Details'><br />";
+		FormBuild = "Enter Specifics for the Power: <input type='text' id='SpecificsFor" + powerID + "' name='Details'><br />";
 	}
-	FormBuild = FormBuild + "<input type='submit' value='Buy it!'>";
-	FormBuild = FormBuild + "</form>";
+	if (FormBuild.length == 0)
+	{
+		FormBuild = "<input type='submit' value='Buy it!' onClick='powerBuy(" + PowID + "," + PowXP + ")'>";
+	}
+	else
+	{
+		FormBuild = FormBuild + "<input type='submit' value='Buy it!' onClick='powerBuy(" + PowID + "," + PowXP + ")'>";
+	}
 	document.getElementById("thirdUpgrade").innerHTML = FormBuild;
 	document.getElementById("thirdUpgrade").style.display='inline';	
 }

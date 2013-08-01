@@ -11,11 +11,30 @@ session_start();
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = 'index.php';
+$extra = '';
 
-require 'components/connections.php';
+$request  = str_replace("", "", $_SERVER['REQUEST_URI']); 
+$site_array  = mb_split("/", $request);  
+foreach($site_array as $key => $value)
+{ 
+	if($value == "") { 
+		unset($site_array[$key]); 
+	} 
+} 
+$params = array_values($site_array); 
 
-$targetLoc = $_REQUEST["Loc"];
+require 'connections.php';
+
+if ($params[2])
+{
+	$targetLoc = $params[1];
+	$fromURL = True;
+}
+else
+{
+	$targetLoc = $_REQUEST["Loc"];
+}
+
 
 $validLocation = false;
 $allLocations = 'SELECT UID FROM Locations';
@@ -26,8 +45,8 @@ while ($row['UID'] = mysqli_fetch_array($allLocs))
 	if ($targetLoc == $row['UID'][$i])
 	{
 		$currentLocationGetStr = "SELECT Current_Location_W FROM Character_Details WHERE UID = " . $_SESSION["CharUID"];
-		$currentLocationSetStr = "UPDATE Character_Details SET Current_Location_W='" . $_REQUEST["Loc"] . "' WHERE UID = " . $_SESSION["CharUID"];
-		$currentLocationName = "SELECT LocationName_W FROM Locations WHERE UID = " . $_REQUEST["Loc"];
+		$currentLocationSetStr = "UPDATE Character_Details SET Current_Location_W='" . $targetLoc . "' WHERE UID = " . $_SESSION["CharUID"];
+		$currentLocationName = "SELECT LocationName_W FROM Locations WHERE UID = " . $targetLoc;
 		
 		$SetLoc = mysqli_query($ud,$currentLocationSetStr);
 		$GetLoc = mysqli_query($ud,$currentLocationGetStr);
@@ -37,16 +56,21 @@ while ($row['UID'] = mysqli_fetch_array($allLocs))
 		{
 			$_SESSION["CurrLoc"] = $row['Current_Location_W'];
 		}
+		
 		while($row = mysqli_fetch_array($GetName))
 		{
 			$_SESSION["CurrLocName"] = $row['LocationName_W'];
 		}
-		header("Location: http://$host$uri/$extra");
-		exit;
+		
 	} else {
 		$i++;
 	}
 }
-header("Location: http://$host$uri/$extra");
-exit;
+if ($fromURL)
+{
+	echo '<script>
+			whoIsHere();
+			getChat();
+		</script>';
+}
 ?>

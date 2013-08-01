@@ -6,7 +6,9 @@
 //  IsGM: Boolean of whether or not this is a GM account
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 //  TZ: String containng a timezone
-require 'components/header.php';
+session_start();
+
+require 'connections.php';
 
 // Page-Specific variables
 $ExistingPowerStr="SELECT UID, Power, AddonType, Name FROM Powers ORDER BY Power, AddonType";
@@ -29,7 +31,7 @@ while ($row=mysqli_fetch_array($ExistingPowersQry))
 }
 //Body
 ?>
-<div class='content'>
+
 	<h2>Insert Into Database (GM-only)</h2>
 	<?php if (!$_SESSION["IsGM"]): ?>
 	You do not have permission to view this page.
@@ -81,10 +83,10 @@ while ($row=mysqli_fetch_array($ExistingPowersQry))
 				</select>
 			<input type='submit' value='Add!'>
 		</form>
-	</div>
+
 <?php endif; ?>
 
 <?php
 //Footer
-require 'components/footer.php';
+require 'footer.php';
 ?>

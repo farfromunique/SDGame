@@ -9,7 +9,7 @@
 
 session_start();
 
-require 'components/connections.php';
+require 'connections.php';
 
 $UName = "'" . $_POST['User'] . "'";
 $PWord = md5($_POST['Pword']);
@@ -32,35 +32,39 @@ if (mysqli_affected_rows($pw) == 1) // Precisely 1 Login Name matches what was e
 				$LoggedInAt = mysqli_query($pw, "UPDATE Logins SET LastLogin " . $t . " WHERE UID = " . $_SESSION["CharUID"]);
 				$GetLoc = mysqli_query($pw,"SELECT Current_Location_W, Name FROM Character_Details WHERE UID = " . $_SESSION["CharUID"]);
 				while ($row = mysqli_fetch_array($GetLoc))
-			{
-				$_SESSION["CurrLoc"] = $row['Current_Location_W'];
-				$_SESSION["CharName"] = $row['Name'];
+				{
+					$_SESSION["CurrLoc"] = $row['Current_Location_W'];
+					$GetLocNameStr = 'SELECT LocationName_W FROM Locations WHERE UID = ' . $_SESSION["CurrLoc"];
+					$GetLocName = mysqli_query($con,$GetLocNameStr);
+					while ($rowB = mysqli_fetch_array($GetLocName))
+					{
+						$_SESSION["CurrLocName"] = $rowB['LocationName_W'];
+					}
+					$_SESSION["CharName"] = $row['Name'];
+				}
+			
+				$GM_Indicator = explode("-",$_SESSION["CharName"]);
+				$_SESSION["IsGM"] = ($GM_Indicator[0] == "GM");
+				
+				$host  = $_SERVER['HTTP_HOST'];
+				$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+				header("Location: http://$host$uri/");
+				exit;
+			
 			}
-			$GM_Indicator = explode("-",$_SESSION["CharName"]);
-			if ($GM_Indicator[0] == "GM")
-			{
-				$_SESSION["IsGM"] = True;
-			}
-			else
-			{
-				$_SESSION["IsGM"] = False;
-			}
-			header('Location: http://game.acwpd.com/');
-
-
-		}
 			else // Passwords don't match
 			{
-				echo "Invalid Password. Try Again";
 				$_SESSION["LoggedIn"] = "No";
 				$_SESSION["CharUID"] = 0;
 				?>
 				<html>
-				<head>
-				<link rel='stylesheet' type='text/css' href='basic.css'>
-				</head>
-				<?php
-				require 'components/register.php';
+					<head>
+						<link rel='stylesheet' type='text/css' href='basic.css'>
+					</head>
+					<body>
+						<span>Invalid Login or Password. Try Again</span>
+					<?php
+						require ('register.php');
 			}	
 		}
 }
@@ -74,16 +78,16 @@ else if (mysqli_affected_rows($pw) == 0) // Invalid Login Name
 			<link rel='stylesheet' type='text/css' href='basic.css'>
 		</head>
 		<body>
-			<span>Invalid Login Name. Try Again.</span>
+			<span>Invalid Login or Password. Try Again</span>
 		<?php
-	require 'components/register.php';
+			require ('register.php');
 }
 else // Non-Unique LoginName (how did this happen?)
 {
-	$message="Hey! Someone just managed to get more than 1 result on the query<br />" . $loginStr . "<br />Better check the DB!";
+	$message="Hey! Someone just managed to get more than 1 result on the query\n" . $loginStr . "\nBetter check the DB!";
 	$headers = "From:TheGame@acwpd.com";
 	mail('game@acwpd.com','Duplicate Username',$message,$headers);
 	echo "Something very odd happened. The site admin has been contacted. Our apologies.";
 }
-require 'components/footer.php';
+require ('footer.php');
 ?>
