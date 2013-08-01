@@ -1,12 +1,21 @@
 <?php
-if (isset($_REQUEST["UD_type"]))
+
+if(!isset($con))
+{
+session_start();
+
+require_once ('connections.php');
+require_once ('time.php');
+}
+$currentChar = $_SESSION["CharUID"];
+
+if (isset($_POST["UD_type"]))
 	{
-		if ($_REQUEST["UD_type"]="Converse")
+		if ($_POST["UD_type"]="Converse")
 			{
-				$newComment = $_REQUEST["Comm"];
+				$newComment = $_POST["Comm"];
 				$udstr="INSERT INTO Conversations (Location, TDS, Char_num, Comment)
 						VALUES ('" . $_SESSION["CurrLoc"] . "','$tu','$currentChar','$newComment')";
-				
 				$conversUD = mysqli_query($ud,$udstr);	
 			}
 	}
@@ -18,7 +27,7 @@ $conversStr = "SELECT Conversations.UID, Conversations.Location, Conversations.T
 $convers = mysqli_query($con,$conversStr);	
 $conversRows = mysqli_affected_rows($con);
 ?>
-<div class='conversation'>
+
 <?php if ($conversRows > 0): ?>
 	<?php while ($row = mysqli_fetch_array($convers)): ?>
 		<?php
@@ -27,11 +36,7 @@ $conversRows = mysqli_affected_rows($con);
 		?>
 		<div class='comment' id= <?php echo $row['UID']; ?> >
 			<?php if ($_SESSION["IsGM"]): ?>
-				<form action='delete.php' method='POST' class='GM_Button'>
-					<input type='hidden' name='UID' value=' <?php echo $row['UID']; ?> '>
-					<input type='hidden' name='Type' value='comment'>
-					<input type='submit' value='Delete'>
-				</form>
+					<input type='submit' class='GM_Button' value='Delete' onClick='removeRecord(<?php echo $row['UID']; ?>)'>
 			<?php endif; ?>
 			<span class='attrib'>
 				<a href='show.php?id=<?php echo $row['CharUID']; ?>'>
@@ -44,9 +49,11 @@ $conversRows = mysqli_affected_rows($con);
 	<?php else: ?>
 		<i>Nobody seems to have said anything for a while...</i>
 	<?php endif; ?>
-	<form action='index.php' method='post'>
-	<input type='hidden' name='UD_type' value='Converse'>
-	<input type='text' name='Comm' class='TalkBox'>
-	<input type='submit' value='Talk' class='TalkButton'>
-	</form>
+	<input type='text' name='Comm' class='TalkBox' id='message' onkeypress='return typeChat(event)'>
+	<input type='submit' value='Talk' class='TalkButton' onClick='chat()'>
 </div>
+<!--
+<script>
+setTimeout(getChat(), 15000);
+</script>
+-->
