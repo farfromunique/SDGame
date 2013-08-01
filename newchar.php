@@ -7,7 +7,9 @@
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 //  TZ: String containng a timezone
 
-require 'components/header.php';
+session_start();
+
+require 'header.php';
 ?>
 <style>
 	.important {
@@ -93,8 +95,6 @@ switch ($CharGend)
 }
 
 ?>
-
-<div class='content'>
 
 <?php if ($_REQUEST["update"] == "Yes"): ?>
 		
