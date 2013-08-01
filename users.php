@@ -6,8 +6,8 @@
 //  IsGM: Boolean of whether or not this is a GM account
 //  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
 //  TZ: String containng a timezone
-
-require 'components/header.php';
+sesion_start();
+require 'connections.php';
 
 // Page-Specific Variables
 $allCharsStr="SELECT `Character_Details`.`UID`, `Character_Details`.`Name`, 
@@ -20,7 +20,6 @@ $allChars = mysqli_query($con,$allCharsStr);
 
 //Body
 ?>
-<div class='content'>
 	<h2>List of all characters</h2>
 	<table width=85% border='1'>
 		<tr>
@@ -36,18 +35,18 @@ $allChars = mysqli_query($con,$allCharsStr);
 		{
 			?>
 			<tr>
-				<td colspan='2' align='center'><b><a href=goto.php?Loc=" . $row['LocUID'] . ">" . $row['Location'] . "</a><b></td>
+				<td colspan='2' align='center'><b><a href=goto.php?Loc=<?php echo $row['LocUID'] ?>><?php echo $row['Location'] ?></a><b></td>
 			</tr>
 			<?php
 		}
 		?>
 		<tr>
-			<td><a href='show.php?id=" . $row['UID'] . "'>" . $row['Name'] . "</a></td>
-			<td align='center'>" . $row['Rank'] . "</td>
+			<td><a href='show.php?id=<?php echo $row['UID'] ?>'><?php echo $row['Name'] ?></a></td>
+			<td align='center'><?php echo $row['Rank'] ?></td>
 		</tr>
 		<?php
 		$LastRowLoc = $ThisRowLoc;
 	}
 	?>
 	</table>
-<?php require 'components/footer.php'; ?>
+<?php require 'footer.php'; ?>
