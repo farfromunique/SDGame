@@ -9,7 +9,7 @@
 
 session_start();
 
-require 'components/connections.php';
+require 'connections.php';
 
 $XP_Cost = $_POST["XP_Cost"];
 $PowerUID = $_POST["PowerUID"];
@@ -27,8 +27,5 @@ if (!$PowerTableUpdate = mysqli_query($ud,$PowerTableUpdateStr))
 {
 	die("Error in PowersLink Insert! <a href=javascript:history.back>back up</a>");
 }
-
-// Return to buyPowers2.php
-header('Location: http://game.acwpd.com/buyPowers2.php');
 
 ?>
