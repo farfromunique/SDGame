@@ -3,7 +3,7 @@ SDGame
 
 Sweet Dreams Online: PHP and SQL Roleplay forum
 
-Contact aaron@acwpd.com for more information
+Contact Aaron Coquet (aaron@acwpd.com) for more information
 
 This was originally built on a PHP 5.3 system, running MySQL 5.3.12.
 
