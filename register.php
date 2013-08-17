@@ -1,6 +1,6 @@
 <?php if ( !isset($_SESSION["LoggedIn"]) or $_SESSION["LoggedIn"]=="No"): ?>
 	<div class='register'><Center>Welcome!<center>
-		<p>You don't seem to be logged in at the moment. Please take a moment to either Log In or Register.</p>
+		<p>You don't seem to be logged in at the moment. Please either Log In or Register.WAAAAAAA</p>
 		<br /><br />
 		<table width='400px' border='1'>
 			<tr>

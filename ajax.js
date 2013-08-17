@@ -1,7 +1,7 @@
 var sRoot = "http://game.acwpd.com/";
 function loadMyPage(pageName,displayURL,targetDiv)
 {
-  document.getElementById("main").innerHTML = "Loading ...";
+	document.getElementById("main").innerHTML = "Loading ...";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("GET",sRoot + pageName,true);
 		xmlhttp.onreadystatechange=function()
