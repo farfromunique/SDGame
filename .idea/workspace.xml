@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="14868efb-f267-4713-be31-d2b837eb152d" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Aaron\Documents\Work\Websites\game.acwpd.com\SDGame\pages\ImportantStuff.php" afterPath="$PROJECT_DIR$/include/ImportantStuff.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/TZChoice.php" afterPath="$PROJECT_DIR$/pages/TZChoice.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/buyPowers.php" afterPath="$PROJECT_DIR$/pages/buyPowers.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/buyPowers2.php" afterPath="$PROJECT_DIR$/pages/buyPowers2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/converse.php" afterPath="$PROJECT_DIR$/pages/converse.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/delete.php" afterPath="$PROJECT_DIR$/pages/delete.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/footer.php" afterPath="$PROJECT_DIR$/include/footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/goto.php" afterPath="$PROJECT_DIR$/pages/goto.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/headbar.php" afterPath="$PROJECT_DIR$/include/headbar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/insert.php" afterPath="$PROJECT_DIR$/pages/insert.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/insert2.php" afterPath="$PROJECT_DIR$/pages/insert2.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/login.php" afterPath="$PROJECT_DIR$/pages/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/navbar.php" afterPath="$PROJECT_DIR$/include/navbar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/newchar.php" afterPath="$PROJECT_DIR$/pages/newchar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/register.php" afterPath="$PROJECT_DIR$/pages/register.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/registered.php" afterPath="$PROJECT_DIR$/pages/registered.php" />
@@ -24,7 +22,7 @@
     </list>
     <ignored path="SDGame.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="14868efb-f267-4713-be31-d2b837eb152d" time="1378682422636" ignored="false" />
+    <file path="/Dummy.txt" changelist="14868efb-f267-4713-be31-d2b837eb152d" time="1378682491554" ignored="false" />
     <file path="/a.php" changelist="14868efb-f267-4713-be31-d2b837eb152d" time="1378621954142" ignored="false" />
     <file path="/DB.class.php" changelist="14868efb-f267-4713-be31-d2b837eb152d" time="1378630139866" ignored="false" />
     <file path="/index.php" changelist="14868efb-f267-4713-be31-d2b837eb152d" time="1378681987623" ignored="false" />
@@ -46,44 +44,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="logout.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/logout.php">
+      <file leaf-file-name="login.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="382" vertical-scroll-proportion="-0.0">
+            <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newchar.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/newchar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registered.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/registered.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/show.php">
+      <file leaf-file-name="kronjob.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/kronjob.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
@@ -91,51 +62,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tz_update.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/tz_update.php">
+      <file leaf-file-name="insert2.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/insert2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TZChoice.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/TZChoice.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
+            <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
               <folding>
-                <marker date="1378682315040" expanded="true" signature="336:646" placeholder="SELECT `Char..Character_Details..." />
+                <marker date="1378682722404" expanded="true" signature="569:659" placeholder="INSERT INTO ..." />
+                <marker date="1378682722404" expanded="true" signature="1055:1291" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="headbar.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/headbar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="32" selection-start="299" selection-end="299" vertical-scroll-proportion="-5.230769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insert.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="insert.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/insert.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="9" selection-start="3173" selection-end="3173" vertical-scroll-proportion="0.7270642">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding>
-                <marker date="1378682490093" expanded="true" signature="481:553" placeholder="SELECT UID, ..Powers..." />
+                <marker date="1378682722616" expanded="true" signature="487:559" placeholder="SELECT UID, ..Powers..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goto.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/goto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
+              <folding>
+                <marker date="1378682722633" expanded="true" signature="789:814" placeholder="SELECT UID F..Locations..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delete.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/delete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="converse.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/converse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="20" selection-start="272" selection-end="272" vertical-scroll-proportion="-4.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buyPowers2.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/buyPowers2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="20" selection-start="272" selection-end="272" vertical-scroll-proportion="-4.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buyPowers.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/buyPowers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="20" selection-start="272" selection-end="272" vertical-scroll-proportion="0.17975831">
+              <folding>
+                <marker date="1378682722472" expanded="true" signature="507:550" placeholder="SELECT * FRO..Powers..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="272" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,22 +166,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/include/footer.php" />
-        <option value="$PROJECT_DIR$/include/headbar.php" />
-        <option value="$PROJECT_DIR$/include/navbar.php" />
-        <option value="$PROJECT_DIR$/pages/buyPowers.php" />
-        <option value="$PROJECT_DIR$/pages/buyPowers2.php" />
-        <option value="$PROJECT_DIR$/pages/delete.php" />
-        <option value="$PROJECT_DIR$/pages/goto.php" />
-        <option value="$PROJECT_DIR$/pages/insert2.php" />
-        <option value="$PROJECT_DIR$/pages/login.php" />
-        <option value="$PROJECT_DIR$/pages/newchar.php" />
-        <option value="$PROJECT_DIR$/pages/register.php" />
-        <option value="$PROJECT_DIR$/pages/registered.php" />
-        <option value="$PROJECT_DIR$/pages/tz_update.php" />
-        <option value="$PROJECT_DIR$/pages/TZChoice.php" />
-        <option value="$PROJECT_DIR$/pages/users.php" />
         <option value="$PROJECT_DIR$/pages/insert.php" />
+        <option value="$PROJECT_DIR$/include/headbar.php" />
+        <option value="$PROJECT_DIR$/pages/users.php" />
+        <option value="$PROJECT_DIR$/pages/TZChoice.php" />
+        <option value="$PROJECT_DIR$/pages/tz_update.php" />
+        <option value="$PROJECT_DIR$/pages/registered.php" />
+        <option value="$PROJECT_DIR$/pages/register.php" />
+        <option value="$PROJECT_DIR$/pages/newchar.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/pages/login.php" />
+        <option value="$PROJECT_DIR$/pages/insert2.php" />
+        <option value="$PROJECT_DIR$/pages/goto.php" />
+        <option value="$PROJECT_DIR$/pages/delete.php" />
+        <option value="$PROJECT_DIR$/pages/converse.php" />
+        <option value="$PROJECT_DIR$/pages/buyPowers2.php" />
+        <option value="$PROJECT_DIR$/pages/buyPowers.php" />
       </list>
     </option>
   </component>
@@ -364,26 +367,50 @@
       <created>1378630286246</created>
       <updated>1378630286246</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="making the site use dynamic variables - $_SERVER instead of hard-coded.">
+      <created>1378682498360</created>
+      <updated>1378682498360</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25933075" sideWeight="0.6712517" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.25933075" sideWeight="0.4264099" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921812" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.25933075" sideWeight="0.4264099" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25933075" sideWeight="0.6712517" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -457,77 +484,18 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/ImportantStuff.php">
+    <entry file="file://$PROJECT_DIR$/pages/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/goto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding>
-            <marker date="1378682205047" expanded="true" signature="-1:-1" placeholder="SELECT UID F..Locations..." />
+            <marker date="1378682722514" expanded="true" signature="-1:-1" placeholder="SELECT `Char..Character_Details..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/delete.php">
+    <entry file="file://$PROJECT_DIR$/pages/TZChoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="377" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/insert2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="271" selection-end="271" vertical-scroll-proportion="-5.230769">
-          <folding>
-            <marker date="1378682315056" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1378682315056" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/kronjob.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="382" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/newchar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/registered.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
@@ -541,39 +509,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/tz_update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/TZChoice.php">
+    <entry file="file://$PROJECT_DIR$/pages/registered.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/users.php">
+    <entry file="file://$PROJECT_DIR$/pages/newchar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="266" selection-end="266" vertical-scroll-proportion="-4.576923">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/kronjob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/insert2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
           <folding>
-            <marker date="1378682315040" expanded="true" signature="336:646" placeholder="SELECT `Char..Character_Details..." />
+            <marker date="1378682722404" expanded="true" signature="569:659" placeholder="INSERT INTO ..." />
+            <marker date="1378682722404" expanded="true" signature="1055:1291" placeholder="INSERT INTO ..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/headbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="299" selection-end="299" vertical-scroll-proportion="-5.230769">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/insert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="9" selection-start="3173" selection-end="3173" vertical-scroll-proportion="0.7270642">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding>
-            <marker date="1378682490093" expanded="true" signature="481:553" placeholder="SELECT UID, ..Powers..." />
+            <marker date="1378682722616" expanded="true" signature="487:559" placeholder="SELECT UID, ..Powers..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/goto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
+          <folding>
+            <marker date="1378682722633" expanded="true" signature="789:814" placeholder="SELECT UID F..Locations..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="50" selection-start="98" selection-end="98" vertical-scroll-proportion="-1.3076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="272" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/converse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="20" selection-start="272" selection-end="272" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/buyPowers2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="20" selection-start="272" selection-end="272" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/buyPowers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="20" selection-start="272" selection-end="272" vertical-scroll-proportion="0.17975831">
+          <folding>
+            <marker date="1378682722472" expanded="true" signature="507:550" placeholder="SELECT * FRO..Powers..." />
           </folding>
         </state>
       </provider>

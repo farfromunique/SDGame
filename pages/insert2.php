@@ -1,6 +1,6 @@
 <?php
     $site_root = $_SERVER["SERVER_NAME"];
-    $serverRoot = $_SERVER["DOCUMENT_ROOT"];
+    $serverRoot = $_SERVER["DOCUMENT_ROOT"] . '/';
     spl_autoload_register(function ($class) {
         global $serverRoot;
         require_once $serverRoot . 'classes/' . $class . '.class.php';
