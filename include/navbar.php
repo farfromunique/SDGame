@@ -1,4 +1,11 @@
 <?php
+    $site_root = $_SERVER["SERVER_NAME"];
+    $serverRoot = $_SERVER["DOCUMENT_ROOT"];
+    spl_autoload_register(function ($class) {
+        global $serverRoot;
+        require_once $serverRoot . 'classes/' . $class . '.class.php';
+    });
+    session_start();
     require_once ('connections.php');
     $results = array();
     $results = $allLocations->execute(PDO::FETCH_ASSOC);

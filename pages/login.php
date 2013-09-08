@@ -1,11 +1,11 @@
 <?php
-$site_root = 'http://game.acwpd.com/OO/';
-$serverRoot = '/f5/sdgame/public/OO/';
-spl_autoload_register(function ($class) {
-    global $serverRoot;
-    include_once $serverRoot . 'classes/' . $class . '.class.php';
-});
-session_start();
+    $site_root = $_SERVER["SERVER_NAME"];
+    $serverRoot = $_SERVER["DOCUMENT_ROOT"];
+    spl_autoload_register(function ($class) {
+        global $serverRoot;
+        require_once $serverRoot . 'classes/' . $class . '.class.php';
+    });
+    session_start();
     include_once ($serverRoot . 'include/connections.php');
 
 $you = new User;

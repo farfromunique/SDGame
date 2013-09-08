@@ -1,5 +1,17 @@
 <?php
-session_start();
+    $site_root = $_SERVER["SERVER_NAME"];
+    $serverRoot = $_SERVER["DOCUMENT_ROOT"];
+    spl_autoload_register(function ($class) {
+        global $serverRoot;
+        require_once $serverRoot . 'classes/' . $class . '.class.php';
+    });
+    session_start();
+
+    if (!$_SESSION["IsGM"] or !isset($_REQUEST["Type"]))
+    {
+        //header("Location: http://$host$uri/$extra");
+        exit;
+    }
 
 require 'connections.php';
 

@@ -1,10 +1,12 @@
 <?php
+    $site_root = $_SERVER["SERVER_NAME"];
+    $serverRoot = $_SERVER["DOCUMENT_ROOT"];
+    spl_autoload_register(function ($class) {
+        global $serverRoot;
+        require_once $serverRoot . 'classes/' . $class . '.class.php';
+    });
+    session_start();
 
-$host  = $_SERVER['HTTP_HOST'];
-$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-$extra = '/insert';
-
-session_start();
 if (!$_SESSION["IsGM"])
 {
 	header("Location: http://$host$uri/$extra"); 

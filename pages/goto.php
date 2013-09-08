@@ -1,13 +1,11 @@
 <?php
-// Availiable $_SESSION variables:
-//  CurrLoc: Integer tied to Locations Table UID
-//  CharUID: Integer tied to Character_Details UID
-//  CharName: String of the Characater Name
-//  IsGM: Boolean of whether or not this is a GM account
-//  LoggedIn: "Yes" or not "Yes" answer to the question "Is there a logged in person?"
-//  TZ: String containng a timezone
-
-session_start();
+    $site_root = $_SERVER["SERVER_NAME"];
+    $serverRoot = $_SERVER["DOCUMENT_ROOT"];
+    spl_autoload_register(function ($class) {
+        global $serverRoot;
+        require_once $serverRoot . 'classes/' . $class . '.class.php';
+    });
+    session_start();
 
 $host  = $_SERVER['HTTP_HOST'];
 $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
